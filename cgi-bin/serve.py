@@ -3,8 +3,8 @@ import os
 from lxml import etree
 
 
-xmlfile = open('warehouse.xml')
-xslfile = open('warehouse.xsl')
+xmlfile = open('../zad02/warehouse.xml')
+xslfile = open('../zad02/warehouse.xsl')
 
 xmldom = etree.parse(xmlfile)
 xsldom = etree.parse(xslfile)

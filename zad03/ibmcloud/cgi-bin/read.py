@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 def print_students():
-    with open("../../zad03/students.csv") as csv:
+    with open("../students.csv") as csv:
         data = csv.read().split("\n")
         for r in data:
             r = r.split(",")
@@ -24,7 +24,7 @@ print("""
         <title>Zadanie 3</title>
         <meta name="author" content="Tomasz Rajchel" />
         <meta charset="UTF-8" />
-        <link rel="stylesheet" href="../../zad03/style.css" type="text/css" />
+        <link rel="stylesheet" href="../style.css" type="text/css" />
 </head>
 
 <body>
@@ -42,7 +42,7 @@ print_students()
 
 print("""
 </table>
-<a href="../../zad03/zad03.html" >Formularz</a>
+<a href="index.html">Formularz</a>
 </div>
 </body>
 

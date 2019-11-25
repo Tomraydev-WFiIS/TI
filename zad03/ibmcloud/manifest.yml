@@ -1,0 +1,6 @@
+applications:
+- disk_quota: 128M
+  buildpack: python_buildpack
+  name: tom-ray-zad03
+  memory: 64MB
+  command: python server.py
