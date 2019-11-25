@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>Zadanie 1</title>
+</head>
+<body>
+    <h3>Odczyt wartości klawisza - zadanie 1</h3>
+    <script>
+    document.addEventListener("keypress", myFunction);
+
+    function myFunction(evt) {
+        var c = String.fromCharCode(evt.charCode);
+        if (c == 'S' || c == 's'){
+            alert("Wciśnieto klawisz S");
+        }
+        if(c == 'c' || c == 'C'){
+            var x = prompt("Podaj liczbę studentów");
+            if(x > 0){
+                alert("Podano liczbę studentów: " + x);
+            }
+        }
+        if(c == 'k' || c == 'K'){
+            if (confirm("Czy chcesz na pewno zakończyć pracę ?")){
+                alert("Dziękujemy za współpracę !");
+            }
+        }
+    }
+    </script>
+</body>
+</html>

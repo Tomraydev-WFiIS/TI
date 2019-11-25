@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<title>JavaScript walidacja formularza</title>
+<meta charset="UTF-8" />
+<script type="text/javascript">
+function validate(){
+if ((document.form1.pole1.value=="")||(document.form1.pole2.value=="")){
+alert ("Należy wypełnić wszystkie pola wymagane!");
+return false; }
+else
+return true;
+}
+</script>
+</head>
+<body>
+<form name="form1" onsubmit="return validate()">
+<p>Adres e-mail: (*pole wymagane)</p>
+<input type="text" size="20" name="pole1" /><br/>
+<p>Informacja zwrotna: (*pole wymagane)</p>
+<textarea name="pole2" rows="3" cols="25"></textarea><br/>
+<p>Adres domowy: (*pole nie wymagane)</p>
+<input type="text" size="35" name="pole3" /><br/>
+<input type="submit" name="B1" value="Submit" />
+</form>
+</body>
+</html>

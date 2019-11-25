@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE dane SYSTEM "http://pascal.fis.agh.edu.pl/~7rajchel/example.dtd">
+<dane>
+  <osoba id="1">
+    <imie>Adam</imie>
+    <nazwisko>Kowalski</nazwisko>
+    <adres><kod>30-052</kod>Kraków</adres>
+  </osoba>
+  <osoba id="2">
+    <imie>Marek</imie>
+    <nazwisko>Abacki</nazwisko>
+    <adres><kod>30-052</kod>Kraków</adres>
+  </osoba>
+  <osoba id="3">
+    <imie>Andrzej</imie>
+    <nazwisko>Babacki</nazwisko>
+    <adres><kod>30-052</kod>Kraków</adres>
+  </osoba>
+  <osoba id="4">
+    <imie>Jan</imie>
+    <nazwisko>Kowalski</nazwisko>
+    <adres><kod>30-052</kod>Kraków</adres>
+  </osoba>
+</dane>

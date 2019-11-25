@@ -1,0 +1,41 @@
+<!DOCTYPE html >
+<html>
+   <head>
+      <meta charset="iso-8859-2" />
+      <title>Trojkat</title>
+      <link rel="stylesheet" href="lab7_20.css" type="text/css" media="all" />
+      <script type="text/javascript" src="lab7_21.js" >
+      </script>
+  </head>
+  <body onload="javascript: load_img();"> 
+      <div class="trojkat_svg_box">
+      <svg encoding="iso-8859-2"  id="svg" width="100%" height="100%" style="background-color:#000000;"  xmlns="http://www.w3.org/2000/svg">
+         <polygon id ="tlo" points="0,0,0,500,500,500,500,0"  class="tlo"/>
+         <polygon id ="trojkat" points="50.00,50.00,350.00,150.00,100.00,300.00" class="trojkat"/>
+         <circle id="kolo" cx="200" cy="200" r="141.42" fill="none" stroke="blue" stroke-width="1" class="kolo" />
+         <circle id ="K" cx="200.00" cy="200.00" r="2" stroke="black" stroke-width="1" fill="black"/>
+      </svg>
+      </div>
+      <div class="naviation_panel">
+	    <fieldset>
+	       <legend>Wierzcholki trojkata</legend>
+    	   <label for="x1">X1:</label>
+	       <input type="text" name="x1" id="x1" class="xyz_input" value="50"/>
+	       <label for="y1">Y1:</label>
+	       <input type="text" id="y1" name="y1" class="xyz_input" value="50"/>
+         <br />
+	       <label for="x2">X2:</label>
+	       <input type="text" name="x2" id="x2" class="xyz_input" value="350"/>
+	       <label for="y2">Y2:</label>
+	       <input type="text" name="y2" id="y2" class="xyz_input" value="150"/>
+         <br />
+	       <label for="x3">X3:</label>
+	       <input type="text" name="x3" id="x3" class="xyz_input" value="100"/>
+	       <label for="y3">Y3:</label>
+	       <input type="text" name="y3" id="y3" class="xyz_input" value="300"/>
+	       <br /><br />
+         <input type="button" value="Rysuj" onclick="load_img();" />
+	    </fieldset>
+      </div>
+  </body>
+</html>

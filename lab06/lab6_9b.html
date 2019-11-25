@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<title>Zmiana elementów graficznych</title>
+<script language="JavaScript" >
+var logo_on = new Image() ;
+var logo_off = new Image() ;
+logo_on.src = 'logo_on.gif';
+logo_off.src = 'logo_off.gif' ;
+function activate (image) {
+var imagesrc = eval(image + '_on.src') ;
+document[image].src = imagesrc ; }
+function deactivate (image) {
+var imagesrc = eval(image + '_off.src') ;
+document[image].src = imagesrc ; }
+</script>
+</head>
+<body>
+<a href="lab3_9b.html" onMouseOver="activate('logo');
+return true" onMouseOut ="deactivate('logo'); return true" >
+<img src="logo_off.gif" alt="[logo]"
+style="border:none" name="logo"></a>
+</body>
+</html>

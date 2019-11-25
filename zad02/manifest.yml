@@ -1,0 +1,6 @@
+applications:
+- disk_quota: 256M
+  buildpack: python_buildpack
+  name: tom-ray-warehouse
+  memory: 256MB
+  command: python server.py

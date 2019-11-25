@@ -1,0 +1,21 @@
+<!DOCTYPE html >
+<html>
+   <head>
+      <meta charset="iso-8859-2" />
+      <title>Trojkat</title>
+      <link rel="stylesheet" href="lab7_20.css" type="text/css" media="all" />
+  </head>
+  <body>
+      <div class="trojkat_svg_box">
+      <svg encoding="iso-8859-2"  id="svg" width="100%" height="100%" style="background-color:#000000;"  xmlns="http://www.w3.org/2000/svg">
+         <!-- prostokat points = ( x1,y1, x1,y2, y2,x2, x2,y1 ) -->
+         <polygon id ="tlo" points="0,0,0,500,500,500,500,0"  class="tlo"/>
+         <!-- trojkat points = ( x1,y1, x2,y2, x3,y3 ) -->
+         <polygon id ="trojkat" points="50.00,50.00,350.00,150.00,100.00,300.00" class="trojkat"/>
+         <!-- kolo  cx = x, cy = y, R = r -->
+         <circle id="kolo" cx="200" cy="200" r="141.42" fill="none" stroke="blue" stroke-width="1" class="kolo" />
+         <circle id ="K" cx="200.00" cy="200.00" r="2" stroke="black" stroke-width="1" fill="black"/>
+      </svg>
+      </div>
+  </body>
+</html>

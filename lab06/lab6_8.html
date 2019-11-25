@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<title>JavaScript walidacja formularza</title>
+<meta charset="UTF-8" />
+<script type="text/javascript">
+function update(index){
+var tekst = "Przykładowy tekst w ramach bloku." ;
+var tabelka = "<table border='1'><tr><th>kol1</th><th>kol2</th></tr><tr><td>w11</td><td>w12</td></tr><tr><td>w21</td><td>w22</td></tr></table>" ;
+var obrazek = "<img src='star.jpg' alt='obrazek' />" ;
+var link = "<a href='newton.fis.agh.edu.pl/~antek/' >Home Page Dydejczyk</a>";
+switch (index) {
+case 0:
+document.getElementById("test").innerHTML = tekst;
+break;
+case 1:
+document.getElementById("test").innerHTML = tabelka;
+break;
+case 2:
+document.getElementById("test").innerHTML = obrazek;
+break;
+case 3:
+document.getElementById("test").innerHTML = link;
+break;
+}
+}
+</script>
+</head>
+<body>
+<form name="form1">
+<select name="wybor" onChange="update(this.selectedIndex)">
+<option value="1">Tekst</option>
+<option value="2">Tabelka</option>
+<option value="3">Obrazek</option>
+<option value="4">Link</option>
+</select>
+</form>
+<div id="test">To jest miejsce do wprowadzania nowej zawartoci.</div>
+</body>
+</html>

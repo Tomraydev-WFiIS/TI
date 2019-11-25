@@ -1,0 +1,172 @@
+<?xml version="1.0" ?>
+	  <!--comment-->
+<books>
+<group>
+<name>Literatura podstawowa</name>
+
+<book>
+  <author>A.MacCaw</author>
+  <title>JavaScript, aplikacje WWW</title>
+  <publisher date="2011">Alex MacCaw</publisher>
+  <publisher date="2012">Helion</publisher>
+</book>
+
+<book>
+  <author>S.Stefanov</author>
+  <title>JavaScript, wzorce</title>
+  <publisher date="2010">Yahoo!, Inc.</publisher>
+  <publisher date="2012">Helion</publisher>  
+</book>
+
+<book>
+  <author>S.Souders</author>
+  <title>Jeszcze wydajniejsze witryny internetowe, Przyspieszenie dziaĹania serwisĂłw WWW</title>
+  <publisher date="2009">Steve Souders</publisher>
+  <publisher date="2010">Helion</publisher>  
+</book>
+
+<book>
+  <author>P.Hope</author>
+  <author>B.Walther</author>
+  <title>Testowanie bezpieczeĹstwa aplikacji internetowych</title>
+  <publisher date="2009">Brian Hope and Ben Walther</publisher>
+  <publisher date="2010">Helion</publisher>
+</book>
+
+<book>
+  <author>S.Stefanov</author>
+  <title>JavaScript, programowanie obiektowe</title>
+  <publisher date="2008">Packt Publishing</publisher>
+  <publisher date="2010">Helion</publisher>
+</book>
+
+<book>
+  <author>P.Lavin</author>
+  <title>PHP, programowanie obiektowe</title>
+  <publisher date="2006">No Starch Press, Inc.</publisher>
+  <publisher date="2007">Helion</publisher>  
+</book>
+
+<book>
+  <author>C.Darie</author>
+  <author>B.Brinzarea</author>
+  <author>F.Chereches-Tosa</author>
+  <author>M.Bucica</author>
+  <title>PHP5, zaawansowane programowanie</title>
+  <publisher date="2005">John Wiley &amp; Sons, Limited</publisher>
+  <publisher date="2005">Helion</publisher>
+</book>
+
+<book>
+  <author>C.Darie</author>
+  <author>B.Brinzarea</author>
+  <author>F.Chereches-Tosa</author>
+  <author>M.Bucica</author>      
+  <title>AJAX i PHP, tworzenie interaktywnych aplikacji internetowych</title>
+  <publisher date="2006">Packt Publishing</publisher>
+  <publisher date="2006">Helion</publisher>
+</book>
+
+<book>
+  <author>T.Negrino</author>
+  <author>D.Smith</author>
+  <title>Po prostu, JavaScript i Ajax</title>
+  <publisher date="2007">Peachpit Press</publisher>
+  <publisher date="2007">Helion</publisher>
+</book>
+
+<book>
+  <author>C.Kochmer</author>
+  <author>E.Frandsen</author>
+  <title>JSP i XML</title>
+  <publisher date="2002">SAMS Publishing</publisher>
+  <publisher date="2002">Helion</publisher>
+</book>
+
+<book>
+  <author>W.Romanowicz</author>
+  <title>XML Äwiczenia praktyczne</title>
+  <publisher date="2002">Helion</publisher>
+</book>
+
+<book>
+  <author>P.Kazienko</author>
+  <author>K.Gwiazda</author>
+  <title>XML na powaĹźnie</title>
+  <publisher date="2002">Helion</publisher>
+</book>
+
+<book>
+  <author>Steven Holzner</author>
+  <title>XML Vademecum profesjonalisty</title>
+  <publisher date="2001">New Riders Publishing</publisher>
+  <publisher date="2001">Helion</publisher>
+</book>
+
+<book>
+  <author>C.Patchett</author>
+  <author>M.Wright</author>
+  <title>CGI/Perl - ksiÄĹźka kucharska</title>
+  <publisher date="1998">John Willey &amp; Sons, Inc.</publisher>
+  <publisher date="1999">Helion</publisher>
+</book>
+
+<book>
+  <author>S.Guelich</author>
+  <author>Sh.Gundavaram</author>
+  <author>G.Birznieks</author>
+  <title>Programowanie CGI w Perlu</title>
+  <publisher date="2000">O'Reilly</publisher>
+  <publisher date="2000">RM</publisher>
+</book>
+
+<book>
+  <author>A.Kierzkowski</author>
+  <title>Tworzenie stron WWW - PHP4 - Äwiczenia praktyczne</title> 
+  <publisher date="2001">Helion</publisher>
+</book>
+
+<book>
+  <author>P.Listonosz</author>
+  <title>Jak to zrobiÄ ? PHP</title>
+  <publisher date="2002">Robomatic</publisher>
+</book>
+
+<book>
+  <author>L.Atkinson</author>
+  <title>Core PHP Programowanie</title>
+  <publisher date="2001">Pretince Hall PTR</publisher>
+  <publisher date="2003">Helion</publisher>
+</book>
+
+<book>
+  <author>K.Coar</author>
+  <author>R.Bowen</author>
+  <title>Apache receptury</title>
+  <publisher date="2004">O'Reilly</publisher>
+  <publisher date="2004">Helion</publisher>
+</book>
+
+<book>
+  <author>M.SokĂłĹ</author>
+  <title>Zaawansowane tworzenie stron WWW - Äwiczenia praktyczne</title>
+  <publisher date="2001">Helion</publisher>
+</book>
+
+<book>
+  <author>Dave Taylor</author>
+  <title>HTML 4, Tworzenie stron WWW</title>
+  <publisher date="2000">IDG Books Worldwide Inc.</publisher>
+  <publisher date="2000">RM</publisher>
+</book>
+
+<book>
+  <author>Elizabeth Castro</author>
+  <title>HTML 4</title>
+  <publisher date="2000">Peachpit Press</publisher>
+  <publisher date="2000">Helion</publisher>
+</book>
+
+</group>
+
+</books>

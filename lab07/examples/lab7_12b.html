@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<title>Canvas and Image</title>
+<style>
+body {
+background: #dddddd;
+}
+#canvas {
+   margin: 10px;
+   padding: 10px;
+   background: #ffffff;
+   border: thin inset #aaaaaa;
+}
+</style>
+
+</head>
+<body>
+<canvas id="e" width="102" height="107"></canvas>
+<script>
+  var canvas = document.getElementById("e");
+  var context = canvas.getContext("2d");
+  var star = new Image();
+  star.src = "star.jpg";
+  star.onload = function() {
+    context.drawImage(star, 0, 0);
+  };
+</script>
+</body>
+</html>

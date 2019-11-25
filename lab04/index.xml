@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<labs>
+    <lab>
+        <title>Lab01 - Język HTML5 i arkusze styli CSS</title>
+        <timestamp>2019/10/07</timestamp>
+        <task>
+            <name>Ćwiczenie 1</name>
+            <link>../lab01/cwiczenie1.html</link>
+        </task>
+        <task>
+            <name>Ćwiczenie 2</name>
+            <link>../lab01/cwiczenie2.html</link>
+        </task>
+        <task>
+            <name>Ćwiczenie 3</name>
+            <link>../lab01/cwiczenie3.html</link>
+        </task>
+        <task>
+            <name>Ćwiczenie 4</name>
+            <link>../lab01/cwiczenie4.html</link>
+        </task>
+        <task>
+            <name>Ćwiczenie 5</name>
+            <link>../lab01/cwiczenie5.html</link>
+        </task>
+    </lab>
+    
+    <lab>
+        <title>Lab02 - Język XML</title>
+        <timestamp>2019/10/14</timestamp>
+        <task>
+            <name>Przykład</name>
+            <link>../lab02/example.xml</link>
+        </task>
+    </lab>
+
+    <lab>
+        <title>Lab03 - PaaS - technologia IBM Cloud</title>
+        <timestamp>2019/10/21</timestamp>
+        <task>
+            <name>Strona - indeks zadań</name>
+            <link>../</link>
+        </task>
+    </lab>
+
+    <lab>
+        <title>Lab04 - Transformacja XSLT</title>
+        <timestamp>2019/10/28</timestamp>
+        <task>
+            <name>index.xml &lt;-- zadanie 1</name>
+            <link>../lab04/index.xml</link>
+        </task>
+        <task>
+            <name>index.xsl &lt;-- zadanie 1</name>
+            <link>../lab04/index.xsl</link>
+        </task>
+        <task>
+            <name>index.html &lt;-- zadanie 1</name>
+            <link>../lab04/index.html</link>
+        </task>
+    </lab>
+
+</labs>

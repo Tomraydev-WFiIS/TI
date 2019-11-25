@@ -1,0 +1,9 @@
+applications:
+- disk_quota: 64M
+  buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+  name: tomek_test_2019_lab03
+  path: .
+  instances: 1
+  memory: 128M
+  stack: cflinuxfs3
+

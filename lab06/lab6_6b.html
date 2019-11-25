@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<title>JavaScript walidacja formularza</title>
+<meta charset="UTF-8" />
+<script type="text/javascript">
+function status(){
+var ind_poz_wyb = document.grupa.test.options.selectedIndex;
+var licz_elem = document.grupa.test.options.length;
+var klucz_poz_pierw = document.grupa.test.options[0].value;
+var wart_poz_pier = document.grupa.test.options[0].text;
+var klucz_poz_wyb = document.grupa.test.options[ind_poz_wyb].value;
+var wart_poz_wyb = document.grupa.test.options[ind_poz_wyb].text;
+var text = "Liczba pozycji: "+licz_elem+"\n";
+text += "Klucz pozycji pierwszej: "+klucz_poz_pierw+"\n";
+text += "Opis pozycji pierwszej: "+wart_poz_pier+"\n";
+text += "Indeks pozycji wybranej: "+ind_poz_wyb+"\n";
+text += "Klucz pozycji wybranej: "+klucz_poz_wyb+"\n";
+text += "Opis pozycji wybranej: "+wart_poz_wyb+"\n";
+alert ( text );
+}
+</script>
+</head>
+<body>
+<form name="grupa">
+<p>
+<select name="test" size="1">
+<option value="1">Abacki</option>
+<option value="2">Babacki</option>
+<option value="3">Cabacki</option>
+<option value="4">Dadacki</option>
+</select>
+</p>
+<input type="button" name="b1" value="Opis wybranej pozycji" onClick="status(); " /><br/>
+</form>
+</body>
+</html>

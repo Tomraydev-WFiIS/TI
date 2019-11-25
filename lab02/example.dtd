@@ -1,0 +1,8 @@
+<!ELEMENT dane (osoba+)>
+<!ELEMENT osoba (imie, nazwisko, adres)>
+<!ATTLIST osoba
+          id CDATA #REQUIRED>
+<!ELEMENT imie (#PCDATA)>
+<!ELEMENT nazwisko (#PCDATA)>
+<!ELEMENT adres (#PCDATA|kod)*>
+<!ELEMENT kod (#PCDATA)>

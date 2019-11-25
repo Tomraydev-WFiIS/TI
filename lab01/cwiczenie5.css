@@ -1,0 +1,20 @@
+table {
+    border: solid 1px blue;
+    text-align: center;
+}
+div#header{
+    border: solid 1px red;
+    text-align: center;
+    margin: 16px;
+}
+div#content {
+    text-align: center;
+}
+div#content-left {
+    display:inline-block;
+    margin: 0 32px;
+}
+div#content-right {
+    display:inline-block;
+    margin: 0 32px;
+}

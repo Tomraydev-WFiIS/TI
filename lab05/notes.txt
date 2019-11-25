@@ -1,0 +1,1 @@
+CGI scripts are located in ../cgi-bin catalog

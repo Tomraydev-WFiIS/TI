@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>Zadanie 2</title>
+</head>
+<body>
+<h3>Zadanie 2</h3>
+
+<!-- TODO -->
+<form name="form1" onsubmit="return validate()">
+    <label for="name">Imię</label><br/>
+    <input type="text" name="name" required/>
+
+    <label for="surname">surname</label>
+    <input type="text" name="surname" required/>
+
+    <label for="email">email</label><br/>
+    <input type="email" name="email" required/>
+
+    <label for="studyYear">Rok studów</label><br/>
+    <select name="studyYear" required>
+        <option value="0">wybierz rok</option>
+        <option value="1">rok 1</option>
+        <option value="2">rok 2</option>
+        <option value="3">rok 3</option>
+    </select>
+
+    <label for="email">email</label><br/>
+    <input type="textarea" name="other"/>
+
+    <input type="submit" value="submit"/>
+</form>
+
+<script>
+function validate(){
+    var name = document.form1.name.value;
+    var name = document.form1.surrname.value;
+    var name = document.form1.email.value;
+    var name = document.form1.studyYear.value;
+    // var name = document.form1.other.value;
+
+    if (true){
+        alert ("Należy wypełnić wszystkie pola wymagane!");
+        return false;
+    }
+    return true;
+}
+</script>
+
+</body>
+</html>
+
+<!-- Opracować skrypt walidujący formularz w chwili wysyłania. Formularz zawiera następujące pola:
+
+    nazwisko - pole typu text, wymagane, co najmniej 4 znaki
+    imię - pole typu text, wymagane, co najmniej 4 znaki
+    pole e-mail - pole text lub email, wymagane
+    pole rok studiów - pole typu select, wymagane, zawiera opcje ( 0 -> wybierz rok, 1 -> rok 1, 2 -> rok 2, 3 -> rok3 ), należy wybrać rok
+    pole uwagi - pole typu textarea, nie wymagane
+
+Po poprawnej walidacji funkcja alert() wyświetla wprowadzone dane. Skrypt należy nazwać "lab6_zadanie_2.html". Przykładowa realizacja na rys.1. -->

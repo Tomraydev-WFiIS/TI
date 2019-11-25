@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<title>JavaScript walidacja formularza</title>
+<meta charset="UTF-8" />
+<script type="text/javascript">
+function emailcheck(){
+var string1=document.form1.email.value;
+if (string1.indexOf("@")==-1){
+alert("Proszę podać poprawny adres e-mail!");
+document.form1.email.focus();
+}
+}
+</script>
+</head>
+<body>
+<form name="form1">
+<p>Adres e-mail</p>
+<input type="text" size="20" name="email" onblur="emailcheck()" />
+<p>Tekst informacji:</p>
+<textarea name="S1" rows="2" cols="20"></textarea>
+<input type="submit" name="B1" value="Wyślij" />
+</form>
+</body>
+</html>

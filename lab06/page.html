@@ -1,0 +1,1064 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <link type="text/css" href="labs.css" rel="stylesheet" />
+  <title>IT 2019 - Lab.06</title>
+  <meta name="Author" content="Antoni Dydejczyk" />
+  <link rel="SHORTCUT ICON" href="../image/anton2.ico" />  
+  <script type="text/javascript">
+     hideCode=".: Ukryj kod skryptu :.";
+     showCode=".: Pokaz kod skryptu :.";
+     function toggleDisplayStyle(elemId)
+      {
+         el = document.getElementById(elemId);
+         el.style.display = el.style.display == 'block' ? 'none' : 'block';
+      }
+  </script>
+<link type="text/css" rel="stylesheet" href="./styles/szablon.css" />
+<link type="text/css" rel="stylesheet" href="./styles/shCore.css" /> 
+<link type="text/css" rel="stylesheet" href="./styles/shThemeDefault.css" />
+<script language="javascript" type="text/javascript" src="./script.js"> </script>
+<script type="text/javascript" src="./scripts/shCore.js"></script>
+<script type='text/javascript' src='./scripts/shAutoloader.js' ></script>
+<script type="text/javascript" src="./scripts/shBrushBash.js"></script>
+<script type="text/javascript" src="./scripts/shBrushCpp.js"></script>
+<script type="text/javascript" src="./scripts/shBrushCss.js"></script>
+<script type="text/javascript" src="./scripts/shBrushJScript.js"></script>
+<script type="text/javascript" src="./scripts/shBrushPhp.js"></script>
+<script type="text/javascript" src="./scripts/shBrushPerl.js"></script>
+<script type="text/javascript" src="./scripts/shBrushPython.js"></script>
+<script type="text/javascript" src="./scripts/shBrushPlain.js"></script>
+<script type="text/javascript" src="./scripts/shBrushSql.js"></script>
+<script type="text/javascript" src="./scripts/shBrushXml.js"></script>
+<script type="text/javascript">
+	// SyntaxHighlighter.config.clipboardSwf = './scripts/clipboard.swf';
+	SyntaxHighlighter.all();
+  // When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function() {scrollFunction()};
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }   
+</script>
+<style>
+.top_always {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 98%;
+  height: 50px;
+  z-index: 10;
+  background: #eeeeee;
+  padding: 10px;
+  opacity: 0.9;
+  -webkit-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+}
+</style> 
+</head>
+<body>
+ 
+    <div style="height: 60px;">
+    </div>
+    <div class="top_always " style="vertical-align: middle;">
+    <a href="http://newton.fis.agh.edu.pl/~antek/index.php?sub=it"><img src="images/home_site_ad.svg" style="height:45px; width: 45px; float:left;  " alt="home_site" /></a>
+    <h1 style="margin-left: 80px; font-size: x-large; font-weight: bold; text-align: left; 
+    direction: rtl; border-bottom: none; color:navy;   padding: 8px 0px 0px 0px; "> 
+    <a href="http://newton.fis.agh.edu.pl/~antek/index.php?sub=it_cw">
+    TI, Lab06 - Język Javascript</a> 
+    <span class="small"> [ ver. 2019.11.13.026 ] </span>
+    </h1>
+    </div> 
+    
+    <button style="font-size:24px; " onclick="topFunction()" id="myBtn" title="Go to top">&#9651;</button>    
+  
+  
+  <!-- Plan zajęć -->
+  
+  
+  
+<div class="toc">
+ <div class="tocheader"> <script type="text/javascript">showTocToggle("+","-")</script>Zawartość strony</div>
+ <div id="tocinside">
+  <ul class="toc">
+  <li class="level1"><span class="li"><a href="#Plan" class="toc">Plan zajęć</a></span></li>
+  <li class="level1"><span class="li"><a href="#JS_HTML" class="toc">JavaScript w HTML</a></span></li>
+  <li class="level1"><span class="li"><a href="#func" class="toc">Funkcje komunikatorów</a></span></li>  
+  <li class="level1"><span class="li"><a href="#events" class="toc">Obsługa zdarzeń</a></span></li>  
+  <li class="level1"><span class="li"><a href="#forms" class="toc">Formularze w JS</a></span></li>  
+  <li class="level1"><span class="li"><a href="#appl" class="toc">Prosta aplikacja</a></span></li>
+  <li class="level1"><span class="li"><a href="#innerHTML" class="toc">Tworzenie treści</a></span></li>
+  <li class="level1"><span class="li"><a href="#css" class="toc">Modyfikacja styli</a></span></li>
+  <!--li class="level1"><span class="li"><a href="#canvas" class="toc">Grafika w canvas</a></span></li-->
+  <li class="level1"><span class="li"><a href="#cookie" class="toc">Obsługa ciateczek</a></span></li>
+  <li class="level1"><span class="li"><a href="#Links" class="toc">Linki</a></span></li>    
+  </ul>
+ </div>
+</div>
+
+
+<a id="Plan"></a>
+<article>
+<h1>Interaktywne strony WWW, język JavaScript</h1>  
+
+
+<p>Tematyka zajęć:</p>
+
+<p>W ramach zajęć poznamy możliwości języka JavaScript w tworzeniu interaktywnej treści w przeglądarce.</p>
+
+<ol style="list-style-type: upper-alpha">
+<li>Skrypty JavaScript w języku HTML</li>
+<li>Funkcje komunikatorów alert(), prompt() i confirm()</li>
+<li>Obsługa zdarzeń w języku HTML  onClick(), onLoad, onMouseOver(), onMouseOut()</li>
+<li>Przetwarzanie formularzy</li>
+<li>Realizacja kalkulatora w JavaScript</li>
+<li>Tworzenie nowej treści na stronie WWW innerHTML()</li>
+<li>Modyfikacja stron WWW z poziomu języka JavaScript</li>
+<li>Obsługa ciasteczek w JavaScript</li>
+</ol>
+
+  <!--  Cwiczenie A -->
+
+  
+  <a id="JS_HTML"></a>
+  <section>
+  <h3>A. Skrypty JavaScript w języku HTML</h3>
+  
+<p>Kod skryptu w języku Javascript może być umieszczony w kilku miejscach naszego dokumentu HTML. Kod w języku Javascript 
+zawarty w ramach elementu &lt;script&gt; można umieścić w końcówce zawartości elementu &lt;body&gt; (przykład lab6_1.html), 
+w nagłówku dokumnetu HTML &lt;head&gt; (przykład lab6_2.html) lub w zewnętrznym pliku (przykład lab6_3.html).</p> 
+    
+<ol>
+<li>Skrypt JavaScript wewnątrz elementu &lt;body&gt; dokumentu HTML, plik "lab6_1.html"
+
+  <p>Plik lab6_1.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex01a')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_1.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_1.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex01a"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;JavaScript - skrypt 1&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;Pierwszy skrypt w języku JavaScript&lt;/h3&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+document.write(&quot;&lt;hr /&gt;&quot;);
+document.write(&quot;&lt;p&gt;Skrypt wewnątrz elementu body dokumentu HTML&lt;/p&gt;&quot;);
+document.write(&quot;&lt;hr/&gt;&quot;);
+&lt;/script
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>  
+</li>
+<li>Skrypt JavaScript wewnątrz elementu &lt;head&gt; dokumentu HTML, plik "lab6_2.html"
+
+  <p>Plik lab6_2.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex01b')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_2.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_2.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex01b"><pre class="brush: html"  >
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;JavaScript - skrypt 2&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--
+document.write(&quot;&lt;hr /&gt;&quot;);
+document.write(&quot;&lt;p&gt;Skrypt wewnątrz elementu head dokumentu HTML&lt;/p&gt;&quot;);
+document.write(&quot;&lt;hr/&gt;&quot;);
+--&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;Pierwszy skrypt w języku JavaScript&lt;/h3&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>  
+</li>
+<li>Skrypt JavaScript w pliku zewnętrznym, pliki "lab6_3.html i lab6_3.js"
+
+  <p>Plik lab6_3.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex01c')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_3.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_3.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex01c"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;JavaScript - skrypt 3&lt;/title&gt;
+&lt;script src=&quot;lab6_3.js&quot; &gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;Pierwszy skrypt w języku JavaScript&lt;/h3&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div> 
+
+  <p>Plik lab6_3.js - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex01d')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_3.js" target="source" >[link do dokumentu]</a> )</p>
+  <div class="toggle" id="ex01d"><pre class="brush: js"  >
+// JavaScript Document
+document.write(&quot;&lt;hr /&gt;&quot;);
+document.write(&quot;&lt;p&gt;Skrypt wewnątrz pliku dodatkowego pliku.&lt;/p&gt;&quot;);
+document.write(&quot;&lt;hr/&gt;&quot;);  </pre></div> 
+</li>
+</ol>  
+
+  </section>
+
+  <!--  Cwiczenie B -->
+  
+  <a id="func"></a>
+  <section>  
+  <h3>B. Funkcje komunikatorów: alert(), prompt() i confirm()</h3>
+  
+  <p>W ramach języka Javascript zostały udostępnione dla użytkownika trzy wbudowane funkcje przerywające działanie kodu skryptu i oczekujące
+  na działanie użytkownika. Funkcja alert() wywieświetla komunikat i po akceptacji wznawiana jest praca skryptu, funkcja confirm() oczekuje na 
+  wybór opcji po której wznawia działanie skryptu. Ostanie funkcja prompt() umożliwia wprowadzenie komunitatu, po akceptacji wznawiana jest dalsza praca 
+  skryptu. Odpowiednie przykłady prezentujące działanie funkcji przedstawiono w przykładach lab6_4 i lab6_4a.</p>
+  
+  <ol>
+  
+  <li>Sprawdzamy funkcjonalność funkcji alert(), confirm() i prompt(), plik lab6_4.html
+  
+  <p>Plik lab6_4.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex02a')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_4.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_4.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex02a"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;JavaScript - skrypt 2&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--
+alert(&quot;Obsługa komunikatu Alert&quot;);
+confirm(&quot;Czy potwierdzasz wybór?&quot;);
+prompt(&quot;Podaj liczbę studentów.&quot;);
+--&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div> 
+</li>  
+  <li>Modyfikujemy zawartość pliku z punktu poprzedniego dodając funkcjonalność wydruku odpowiedzi 
+  otrzymanych z funkcji confirm() i prompt(), wymagany kod do modyfikacji w pliku lab6_4.html
+
+  <p>Plik lab6_4a.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex02b')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_4a.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_4a.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex02b"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;JavaScript - skrypt 2&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+&lt;!--
+alert(&quot;Obsługa komunikatu Alert&quot;);
+var k1 = confirm(&quot;Czy potwierdzasz wybór?&quot;);
+var k2 = prompt(&quot;Podaj liczbę studentów.&quot;);
+document.write(&quot;Odpowiedź na 'confirm' &quot; + k1 + &quot;&lt;br /&gt;&quot;);
+document.write(&quot;Odpowiedź na 'prompt' &quot; + k2 + &quot;&lt;br/&gt;&quot;);
+--&gt;
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+                                                                                                              &lt;script type=&quot;text/javascript&quot;&gt;
+  </pre></div>
+</li>
+  </ol>
+  </section>
+  
+  <!--  Cwiczenie C -->  
+  
+  <a id="events"></a>
+  <section>
+  <h3>C. Obsługa zdarzeń w języku HTML: onClick(), onLoad(), onMouseOver(), onMouseOut()</h3>
+ 
+<p>W ramach języka Javascript mamy możliwość obsługi zdarzeń wywoływanych przez użytkownika np. w czasie obsługi myszki (przykładowo zdarzenie mouseover)
+nacinięcia klawisza (zdarzenie keypress), wysłania formularza (zdarzenie submit) czy załadowania strony (zdarzenie load). Ostatnie zdarzenie
+jest niezależne od użytkownika i jest wyzwalane po załadowaniu zawartości strony. Do obsługi zdarzeń mamy gotowe funkcje dla określonych 
+zdarzeń (np. onMouseOver()) lub uniwersalną funkcję addEventListener(zdarzenie, reakcja). Zdarzenia generowane w ramach interfejsu 
+przeglądarki przedstawia tabela 1, natomiast funkcje JavaScript obsługujące wybrane zdarzenia tabela2.</p>  
+
+<div style="width:550px; margin-left:100px">
+<table class="tt" >
+<tr><th>Myszka</th><th>Ramka/obiekt</th><th>Formularz</th><th>Klawiatura</th></tr>
+<tr><td>Click     </td><td>Load    </td><td>Select </td><td> Keypress </td></tr>
+<tr><td>Dblclick  </td><td>Unload  </td><td>Change </td><td> Keydown  </td></tr>
+<tr><td>Mousedown </td><td>Abort   </td><td>Submit </td><td> Keyup    </td></tr>           
+<tr><td>Mouseup   </td><td>Error   </td><td>Reset  </td><td>          </td></tr>
+<tr><td>Mouseover </td><td>Resize  </td><td>Focus  </td><td>          </td></tr>
+<tr><td>Mousemove </td><td>Scroll  </td><td>Blur   </td><td>          </td></tr>
+<tr><td>Mouseout  </td><td>        </td><td>       </td><td>          </td></tr>
+</table>
+
+<p style="text-align:center">Tab 1. Zdarzenia generowane prze użytkownika w intefejsie przegląrki</p>
+</div>
+
+<div style="width:550px; margin-left:100px">
+<table class="tt" >
+<tr><th>Zdarzenie</th><th>Kiedy występuje</th><th>Obsługa zdarzenia</th></tr>
+<tr><td>blur        </td><td>Użytkownik dezaktywuje element formularza  </td><td> onBlur      </td></tr>
+<tr><td>click       </td><td>Użytkownik klika element formularza        </td><td> onClick     </td></tr>
+<tr><td>change      </td><td>Użytkownik zmienia tekst, wybiera element  </td><td> onChange    </td></tr>
+<tr><td>focus       </td><td>Użytkownik aktywuje element formularza     </td><td> onFocus     </td></tr>
+<tr><td>load        </td><td>Strona zostaję załadowana do przeglądarki  </td><td> onLoad      </td></tr>
+<tr><td>mouseover   </td><td>Użytkownik przesuwa kursor myszy           </td><td> onMouseOver </td></tr>
+<tr><td>select      </td><td>Użykownik wybiera pole formularza>         </td><td> onSelect    </td></tr>
+<tr><td>submit      </td><td>Użytkownik wysyła formularz                </td><td> onSubmit    </td></tr>
+<tr><td>unload      </td><td>Zakończenie wizyty na stronie              </td><td> onUnLoad    </td></tr>
+</table>
+
+<p style="text-align:center">Tab 2. Funkcie obsługujące wybrane zdarzenia</p>
+</div>
+
+<ol>  
+<li>Obsługa zdarzenia onClick() wywołanego przez myszkę, plik "lab6_5a.html"
+
+  <p>Plik lab6_5a.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex03a')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_5a.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_5a.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex03a"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;JavaScript - skrypt 3&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function inform(){
+alert(&quot;Informacja pojawia się po wcinięciu klawisza.&quot;)
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;Obsługa zdarzenia onclik&lt;/h3&gt;
+&lt;form&gt;
+&lt;input type=&quot;button&quot; name=&quot;test&quot; value=&quot;Naciśnij&quot; onclick=&quot;inform()&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div> 
+</li>
+<li>Obsługa zdarzeń onMouseOver() i onMouseOut(), plik "lab6_5b.html"
+
+  <p>Plik lab6_5b.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex03b')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_5b.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_5b.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex03b"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Przyklad 3&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p&gt; Obsługa zdarzeń przy ruchu kursorem myszy &lt;/p&gt;
+&lt;br /&gt;
+&lt;a href=&quot;lab3_5b.html&quot; onMouseOver=&quot;alert('test 1 ')&quot; &gt;Kursor na linii ==1== &lt;/a&gt;
+&lt;br /&gt;
+&lt;a href=&quot;lab3_5b.html&quot; onMouseOver=&quot;alert('test 2 ')&quot; &gt;Kursor na linii ==2== &lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div> 
+</li>
+<li>Obsługa zdarzenia onLoad() w dokumencie HTML, plik "lab6_5c.html"
+
+  <p>Plik lab6_5c.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex03c')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_5c.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_5c.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex03c"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;JavaScript - skrypt 3&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function finish(){
+alert('Strona została załadowana !');
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;!--body onload=&quot;finish();&quot; --&gt;
+&lt;body&gt;
+&lt;h3&gt;Obsługa zdarzenia onload&lt;/h3&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div> 
+</li>
+
+<li>Odczyt znaku wciśniętego klawisza, plik "lab6_5d.html"
+
+  <p>Plik lab6_5d.html - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex03d')">[listing dokumentu]</a>  
+                      <a href="read_f6.php?file=lab6_5d.html" target="source" >[link do dokumentu]</a> 
+                      <a href="ex06/lab6_5d.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex03d"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot; /&gt;
+&lt;title&gt;JavaScript - skrypt 5d&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;Odczyt wartości klawisza&lt;/h3&gt;
+&lt;script&gt;
+document.addEventListener(&quot;keypress&quot;, myFunction);
+
+function myFunction(evt) {
+alert(&quot;Obsluga zdarzenia onkeypress: \n&quot;
+      + &quot;własność keyCode: &quot; + evt.keyCode + &quot;\n&quot;
+      + &quot;własność which: &quot; + evt.which + &quot;\n&quot;
+      + &quot;własność charCode: &quot; + evt.charCode + &quot;\n&quot;
+      + &quot;naciśniety znak: &quot;
+      + String.fromCharCode(evt.charCode) + &quot;\n&quot;
+     );
+}
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div> 
+</li>
+
+</ol>
+
+   <fieldset style="margin:10px">
+   <legend>Zadanie 1.</legend> 
+   <p>Opracować skrypt wyświetlający komunikaty:</p>
+   <ul>
+   <li>komunitat w funcji alert() "Wciśnieto klawisz S" po naciśnięciu klawisza "s" lub "S"</li>
+   <li>kumunikat w funkcji prompt() "Podaj liczbę studentów" po naciśnieciu klawisza "c" lub "C",
+       po podaniu liczby większej od 0 wyświetla się komunikatem w funkcji alert "Podano liczbę studentów: x"</li>
+   <li>komunikat w funkcji confirm() "Czy chcesz na pewno zakończyć pracę ?" po naciśnieciu klawisza "k" lub "K",
+       po nacinięciu "Tak" wyświetla się komunikat w funkcji alert "Dziękujemy za współpracę !" </li>
+   </ul>
+   <p>Skrypt należy nazwać "lab6_zadanie_1.html".</p>
+   </fieldset>
+
+  </section>
+
+  <!--  Cwiczenie D -->
+ 
+  <a id="forms"></a>  
+  <section>
+  <h3>D. Przetwarzanie formularzy</h3>
+  
+  <ol>
+    <li>Odczyt danych wprowadzanych w polu formularza, plik "lab6_6a.html"
+
+  <p>Plik lab6_6a.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex04a')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_6a.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_6a.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex04a"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;JavaScript formularz&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;Formularze w JS&lt;/h3&gt;
+&lt;form name=&quot;form1&quot;&gt;
+&lt;input type=&quot;text&quot; size=&quot;10&quot; value=&quot;Zajecia z JS&quot; name=&quot;pole1&quot;&gt;
+&lt;input type=&quot;button&quot; value=&quot;Sprawdź&quot; onclick=&quot;alert(document.form1.pole1.value)&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>  
+    <li>Odczyt wartości wybranych poleceniem &lt;select&gt; w ramach formularza, plik "lab6_6b.html"
+
+  <p>Plik lab6_6b.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex04b')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_6b.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_6b.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex04b"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JavaScript walidacja formularza&lt;/title&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function status(){
+var ind_poz_wyb = document.grupa.test.options.selectedIndex;
+var licz_elem = document.grupa.test.options.length;
+var klucz_poz_pierw = document.grupa.test.options[0].value;
+var wart_poz_pier = document.grupa.test.options[0].text;
+var klucz_poz_wyb = document.grupa.test.options[ind_poz_wyb].value;
+var wart_poz_wyb = document.grupa.test.options[ind_poz_wyb].text;
+var text = &quot;Liczba pozycji: &quot;+licz_elem+&quot;\n&quot;;
+text += &quot;Klucz pozycji pierwszej: &quot;+klucz_poz_pierw+&quot;\n&quot;;
+text += &quot;Opis pozycji pierwszej: &quot;+wart_poz_pier+&quot;\n&quot;;
+text += &quot;Indeks pozycji wybranej: &quot;+ind_poz_wyb+&quot;\n&quot;;
+text += &quot;Klucz pozycji wybranej: &quot;+klucz_poz_wyb+&quot;\n&quot;;
+text += &quot;Opis pozycji wybranej: &quot;+wart_poz_wyb+&quot;\n&quot;;
+alert ( text );
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name=&quot;grupa&quot;&gt;
+&lt;p&gt;
+&lt;select name=&quot;test&quot; size=&quot;1&quot;&gt;
+&lt;option value=&quot;1&quot;&gt;Abacki&lt;/option&gt;
+&lt;option value=&quot;2&quot;&gt;Babacki&lt;/option&gt;
+&lt;option value=&quot;3&quot;&gt;Cabacki&lt;/option&gt;
+&lt;option value=&quot;4&quot;&gt;Dadacki&lt;/option&gt;
+&lt;/select&gt;
+&lt;/p&gt;
+&lt;input type=&quot;button&quot; name=&quot;b1&quot; value=&quot;Opis wybranej pozycji&quot; onClick=&quot;status(); &quot; /&gt;&lt;br/&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>  
+  <li>Walidacja wprowadzanych danych do formularza, funkcja onblur(), plik "lab6_6c.html"  
+  
+  <p>Plik lab6_6c.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex04c')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_6c.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_6c.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex04c"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JavaScript walidacja formularza&lt;/title&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function emailcheck(){
+var string1=document.form1.email.value;
+if (string1.indexOf(&quot;@&quot;)==-1){
+alert(&quot;Proszę podać poprawny adres e-mail!&quot;);
+document.form1.email.focus();
+}
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name=&quot;form1&quot;&gt;
+&lt;p&gt;Adres e-mail&lt;/p&gt;
+&lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;email&quot; onblur=&quot;emailcheck()&quot; /&gt;
+&lt;p&gt;Tekst informacji:&lt;/p&gt;
+&lt;textarea name=&quot;S1&quot; rows=&quot;2&quot; cols=&quot;20&quot;&gt;&lt;/textarea&gt;
+&lt;input type=&quot;submit&quot; name=&quot;B1&quot; value=&quot;Wyślij&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>  
+  <li>Walidacja wprowadzanych danych do formularza, funkcja onsubmit(), plik "lab6_6d.html"  
+  
+  <p>Plik lab6_6d.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex04d')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_6d.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_6d.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex04d"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JavaScript walidacja formularza&lt;/title&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function validate(){
+if ((document.form1.pole1.value==&quot;&quot;)||(document.form1.pole2.value==&quot;&quot;)){
+alert (&quot;Należy wypełnić wszystkie pola wymagane!&quot;);
+return false; }
+else
+return true;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name=&quot;form1&quot; onsubmit=&quot;return validate()&quot;&gt;
+&lt;p&gt;Adres e-mail: (*pole wymagane)&lt;/p&gt;
+&lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;pole1&quot; /&gt;&lt;br/&gt;
+&lt;p&gt;Informacja zwrotna: (*pole wymagane)&lt;/p&gt;
+&lt;textarea name=&quot;pole2&quot; rows=&quot;3&quot; cols=&quot;25&quot;&gt;&lt;/textarea&gt;&lt;br/&gt;
+&lt;p&gt;Adres domowy: (*pole nie wymagane)&lt;/p&gt;
+&lt;input type=&quot;text&quot; size=&quot;35&quot; name=&quot;pole3&quot; /&gt;&lt;br/&gt;
+&lt;input type=&quot;submit&quot; name=&quot;B1&quot; value=&quot;Submit&quot; /&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>  
+ </ol>    
+ 
+   <fieldset style="margin:10px">
+   <legend>Zadanie 2.</legend> 
+   <p>Opracować skrypt walidujący formularz w chwili wysyłania. Formularz zawiera następujące pola:</p>
+   <ul>
+   <li>nazwisko - pole typu text, wymagane, co najmniej 4 znaki</li>
+   <li>imię - pole typu text, wymagane, co najmniej 4 znaki</li>
+   <li>pole e-mail - pole text lub email, wymagane</li>
+   <li>pole rok studiów - pole typu select, wymagane, zawiera opcje ( 0 -> wybierz rok, 1 -> rok 1, 2 -> rok 2, 3 -> rok3 ), należy wybrać rok</li>
+   <li>pole uwagi - pole typu textarea, nie wymagane</li>
+   </ul>
+   <p>Po poprawnej walidacji funkcja alert() wyświetla wprowadzone dane. Skrypt należy nazwać "lab6_zadanie_2.html". Przykładowa
+      realizacja na rys.1.</p>
+   <figure>
+	    <img style="width:60%;height:60%" src="ex06/lab6_zad2.jpg" alt="lab6_zadanie2">
+	    <figcaption>Rys.1 Przykładowa realizacja zadania 2</figcaption>
+   </figure>
+   </fieldset> 
+
+  </section>  
+  
+  <!--  Cwiczenie E -->
+  
+  <a id="appl"></a>  
+  <section>
+  <h3>E. Realizacja kalkulatora w JavaScript</h3>
+
+
+<ol>
+  <li>Prosty skrypt obliczeniowy, funkcja eval(), plik "lab6_7a.html"
+
+  <p>Plik lab6_7a.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex05a')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_7a.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_7a.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex05a"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;title&gt;JavaScript formularz&lt;/title&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function cal() {
+document.form3.wynik.value=eval(document.form3.calculator.value);
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h3&gt;Formularze w JS&lt;/h3&gt;
+&lt;form name=&quot;form3&quot;&gt;
+&lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;calculator&quot;&gt;
+&lt;input type=&quot;button&quot; name=&quot;C1&quot; value=&quot;Wylicz&quot; onclick=&quot;cal()&quot;&gt;
+&lt;input type=&quot;reset&quot; name=&quot;C2&quot; value=&quot;Skasuj&quot;&gt; &lt;br/&gt;
+Wynik:&lt;input type=&quot;text&quot; size=&quot;20&quot; name=&quot;wynik&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>
+  <li>Realizacja kalkulatora czterodziałaniowego, plik "lab6_7b.html"
+
+  <p>Plik lab6_7b.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex05b')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_7b.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_7b.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex05b"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Kalkulator&lt;/title&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name=&quot;calculator&quot;&gt;
+&lt;input type=&quot;text&quot; disabled id=&quot;total&quot; style=&quot;text-align: right; background: white; width:&quot; /&gt;
+&lt;/form&gt;
+&lt;table&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;C&quot; style=&quot;width: 100%&quot; onclick=&quot;calculator.total.value = ''&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;/&quot; style=&quot;width: 100%&quot; onclick=&quot;calculator.total.value += '/'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;*&quot; style=&quot;width: 100%&quot; onclick=&quot;calculator.total.value += '*'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;-&quot; style=&quot;width: 100%&quot; onclick=&quot;calculator.total.value += '-'&quot; &gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;7&quot; onclick=&quot;calculator.total.value += '7'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;8&quot; onclick=&quot;calculator.total.value += '8'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;9&quot; onclick=&quot;calculator.total.value += '9'&quot;&gt;&lt;/td&gt;
+&lt;td rowspan=&quot;2&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;calculator.total.value += '+'&quot; style=&quot;height: 50px; vertical-align: middle&quot; value =&quot;+&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;4&quot; onclick=&quot;calculator.total.value += '4'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;5&quot; onclick=&quot;calculator.total.value += '5'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;6&quot; onclick=&quot;calculator.total.value += '6'&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;1&quot; onclick=&quot;calculator.total.value += '1'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;2&quot; onclick=&quot;calculator.total.value += '2'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;3&quot; onclick=&quot;calculator.total.value += '3'&quot;&gt;&lt;/td&gt;
+&lt;td rowspan=&quot;2&quot;&gt;&lt;input type=&quot;button&quot; onclick=&quot;calculator.total.value = eval(calculator.total.value)&quot; style=&quot;height: 50px; vertical-align: middle&quot; value =&quot;=&quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td colspan=&quot;2&quot;&gt;&lt;input type=&quot;button&quot; style=&quot;width: 68px; text-align: center&quot; value=&quot;0&quot; onclick=&quot;calculator.total.value += '0'&quot;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;input type=&quot;button&quot; value=&quot;.&quot; style=&quot;width: 100%&quot; onclick=&quot;calculator.total.value += '.' &quot;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>
+</ol>
+  </section>
+    
+
+
+  <!--  Cwiczenie F -->
+  
+  <a id="innerHTML"></a>   
+  <section>
+  <h3>F. Tworzenie nowej treści na stronie WWW, innerHTML</h3>
+
+  <ol>
+    <li>Zmiana zawartości elementu &lt;div&gt; z wykorzystaniem innerHTML, plik "lab6_8.html"
+
+  <p>Plik lab6_8.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex06a')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_8.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_8.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex06a"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;JavaScript walidacja formularza&lt;/title&gt;
+&lt;meta charset=&quot;UTF-8&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+function update(index){
+var tekst = &quot;Przykładowy tekst w ramach bloku.&quot; ;
+var tabelka = &quot;&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;kol1&lt;/th&gt;&lt;th&gt;kol2&lt;/th&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;w11&lt;/td&gt;&lt;td&gt;w12&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;w21&lt;/td&gt;&lt;td&gt;w22&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&quot; ;
+var obrazek = &quot;&lt;img src='star.jpg' alt='obrazek' /&gt;&quot; ;
+var link = &quot;&lt;a href='newton.fis.agh.edu.pl/~antek/' &gt;Home Page Dydejczyk&lt;/a&gt;&quot;;
+switch (index) {
+case 0:
+document.getElementById(&quot;test&quot;).innerHTML = tekst;
+break;
+case 1:
+document.getElementById(&quot;test&quot;).innerHTML = tabelka;
+break;
+case 2:
+document.getElementById(&quot;test&quot;).innerHTML = obrazek;
+break;
+case 3:
+document.getElementById(&quot;test&quot;).innerHTML = link;
+break;
+}
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;form name=&quot;form1&quot;&gt;
+&lt;select name=&quot;wybor&quot; onChange=&quot;update(this.selectedIndex)&quot;&gt;
+&lt;option value=&quot;1&quot;&gt;Tekst&lt;/option&gt;
+&lt;option value=&quot;2&quot;&gt;Tabelka&lt;/option&gt;
+&lt;option value=&quot;3&quot;&gt;Obrazek&lt;/option&gt;
+&lt;option value=&quot;4&quot;&gt;Link&lt;/option&gt;
+&lt;/select&gt;
+&lt;/form&gt;
+&lt;div id=&quot;test&quot;&gt;To jest miejsce do wprowadzania nowej zawartoci.&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>  
+  </ol>
+  
+   <fieldset style="margin:10px">
+   <legend>Zadanie 3.</legend> 
+   <p>Zmodyfikować zadanie 2. Informacje o błędnie wprowadzonych danych umieszczamy przy polu,
+   które jest źle wprowadzone wykorzystując innerHTML a nie w funkcję alert(). Komunikat jest wyświetlany na czerwono. 
+   Skrypt należy nazwać "lab6_zadanie_3.html". Pezykładowa realizacja na rys.2.</p>
+   <figure>
+	    <img style="width:60%;height:60%" src="ex06/lab6_zad3.jpg" alt="lab6_zadanie3">
+	    <figcaption>Rys.2 Przykładowa realizacja zadania 3</figcaption>
+   </figure>   
+   </fieldset>
+     
+  </section>    
+  
+  
+  <!--  Cwiczenie G -->  
+  
+  <a id="css"></a>
+  <section>
+  <h3>G. Modyfikacja strony WWW z poziomu języka JavaScript</h3>
+  
+  <ol>
+  <li>Dynamiczna zmiana styli wyświetlanych na stronę WWW, plik "lab6_9a.html"
+
+  <p>Plik lab6_9a.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex07a')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_9a.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_9a.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex07a"><pre class="brush: html"  >
+&lt;!DOCTYPE HTML &gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Dynamiczne wartości CSS&lt;/title&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+#box1{ position: absolute; top: 20px;
+left: 50px; width: 200px;
+border: solid #ff0000 3px;
+background-color: #ffff00;
+color: #000000; padding: 10px;
+}
+&lt;/style&gt;
+
+&lt;script language=&quot;JavaScript&quot;&gt;
+function change(){
+document.getElementById(&quot;box1&quot;).style.borderColor = &quot;#0000ff&quot;;
+document.getElementById(&quot;box1&quot;).style.backgroundColor = &quot;#000000&quot;;
+document.getElementById(&quot;box1&quot;).style.color = &quot;#ffffff&quot;;
+}
+function change_back(){
+document.getElementById(&quot;box1&quot;).style.borderColor = &quot;#ff0000&quot;;
+document.getElementById(&quot;box1&quot;).style.backgroundColor = &quot;#ffff00&quot;;
+document.getElementById(&quot;box1&quot;).style.color = &quot;#000000&quot;;
+}
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div style=&quot;border-color: rgb(255, 0, 0); background-color: rgb(255, 255, 0);
+color: rgb(0, 0, 0);&quot; id=&quot;box1&quot; onmouseover=&quot;change()&quot; onmouseout=&quot;change_back()&quot;&gt;
+&lt;p&gt;Zawartość wewnątrz bloku zmienia się za każdym razem po najechaniu myszką na obszar.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>
+  <li>Modyfikacja elementów graficznych na stronie w wyniku obsługi zdarzeń, plik "lab6_9b.html"
+
+  <p>Plik lab6_9b.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex07b')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_9b.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_9b.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex07b"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt;Zmiana elementów graficznych&lt;/title&gt;
+&lt;script language=&quot;JavaScript&quot; &gt;
+var logo_on = new Image() ;
+var logo_off = new Image() ;
+logo_on.src = 'logo_on.gif';
+logo_off.src = 'logo_off.gif' ;
+function activate (image) {
+var imagesrc = eval(image + '_on.src') ;
+document[image].src = imagesrc ; }
+function deactivate (image) {
+var imagesrc = eval(image + '_off.src') ;
+document[image].src = imagesrc ; }
+&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;a href=&quot;lab3_9b.html&quot; onMouseOver=&quot;activate('logo');
+return true&quot; onMouseOut =&quot;deactivate('logo'); return true&quot; &gt;
+&lt;img src=&quot;logo_off.gif&quot; alt=&quot;[logo]&quot;
+style=&quot;border:none&quot; name=&quot;logo&quot;&gt;&lt;/a&gt;
+&lt;/body&gt;
+&lt;/html&gt;  </pre></div>
+</li>  
+  </ol>
+  </section>
+
+  <!--  Cwiczenie H -->
+ 
+  <a id="cookie"></a>  
+  <section>
+  <h3>H. Obsługa ciasteczek w języku JavaScript</h3>
+  
+  <p>Ciasteczka (ang. cookies) to niewielkie pliki, zapisywane i przechowywane na 
+  lokalnym komputerze lub innym urządzeniu tworzone podczas realizacji dostęu
+  do serwisu WWW w sieci Internet. Na rys.3 przedstawiono kolejne etapy tworzenia
+  plików "cookies" na lokalnym systemie.</p>
+  
+     <figure>
+	    <!--img style="width:70%;height:70%" src="ex04/lab4_cookie.jpg" alt="Lab4_cookie"-->
+      <img src="ex06/cookie.svg" style="width:70%; background: white;" alt="Lab6_cookie" />
+	    <figcaption style="text-align:center; width:70%">Rys.3 Cookie w serwisie WWW.</figcaption>
+   </figure> 
+  
+  <ol>
+  
+<li>Sprawdzamy ciasteczka umieszczone dla witryny www.fis.agh.edu.pl wykonując 
+    kod javascript umieszczony w pliku "lab6_10a.html"
+
+  <p>Plik lab6_10a.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex10a')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_10a.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_10a.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex10a"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Lista zmiennych Cookie&lt;/title&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;script language=&quot;JavaScript&quot; &gt;
+     window.onload = showCookies ;
+     function showCookies() {
+       var outMsg = '';
+       if (document.cookie.length = 0 ) 
+         { outMsg = &quot; Brak ciasteczek &quot;  ; }
+       else  {
+          outMsg += &quot;&lt;table&gt;&lt;tr&gt;&lt;th&gt;Nazwa ciasteczka&lt;/th&gt;&lt;th&gt;Zawartosć ciasteczka&lt;/th&gt;&lt;/tr&gt;&quot; ;
+          var thisCookie = document.cookie.split(&quot;;&quot;);
+          for ( var i=0; i&lt;thisCookie.length; i++ )
+            {
+               outMsg += &quot;&lt;tr&gt;&lt;td&gt;&quot; + thisCookie[i].split(&quot;=&quot;)[0] + &quot;&lt;/td&gt;&quot;;
+               outMsg += &quot;&lt;td&gt;&quot; + thisCookie[i].split(&quot;=&quot;)[1] +&quot;&lt;/td&gt;&lt;/tr&gt;&lt;/tr&gt;&quot;;
+            }
+          outMsg += &quot;&lt;/table&gt;&quot;;
+       }
+       document.getElementById(&quot;cookieData&quot;).innerHTML = outMsg ; 
+     }       
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h3&gt;Lista ciasteczek&lt;/h3&gt;
+    &lt;p id=&quot;cookieData&quot;&gt; &lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+  </pre></div>
+</li>  
+
+    <li>W kolejnym skrypcie tworzymy nowe ciasteczko, które umożliwi wypełnienie pola 
+    po wczytaniu ponownym skryptu, plik "lab6_10b.html"
+
+  <p>Plik lab6_10b.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex10b')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_10b.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_10b.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex10b"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Zmiana elementów graficznych&lt;/title&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+     window.onload = nameFieldInit ;
+     function nameFieldInit() {
+       var userName = '';
+       if (document.cookie.length &gt; 0 )   {
+          var dimCookie = document.cookie.split(&quot;;&quot;) ; 
+          for ( var i=0; i&lt;dimCookie.length; i++ )  {
+            dataCookie = dimCookie[i].split(&quot;=&quot;) ;
+            // alert ( dataCookie[0]+&quot; =&gt; &quot;+dataCookie[1]) ;
+            if ( &quot;userName&quot; == dataCookie[0] )  { 
+                userName = dataCookie[1] ;
+                document.getElementById(&quot;nameField&quot;).value = userName;
+                document.getElementById(&quot;nameField&quot;).onblur = setCookie;
+            }
+          }
+       }
+     }
+     
+     function setCookie() {
+       var expireDate = new Date();
+       expireDate.setMonth(expireDate.getMonth()+6);
+       var userName = document.getElementById(&quot;nameField&quot;).value;
+       document.cookie = &quot;userName=&quot; + userName + &quot;;expires=&quot; + expireDate.toGMTString();
+     }  
+        
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;form onsubmit=&quot;setCookie()&quot; &gt;
+    &lt;p&gt;Podaj swoje imię: &lt;input type=&quot;text&quot; id=&quot;nameField&quot; /&gt; &lt;/p&gt;
+    &lt;input type=&quot;submit&quot; /&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+  </pre></div>
+</li>  
+
+  <li>Przechowywanie ustawiania styli na stronie www w ciasteczkach, plik "lab6_10c.html"  
+  
+  <p>Plik lab6_10c.html ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex10c')">[listing dokumentu]</a>
+                            <a href="read_f6.php?file=lab6_10c.html" target="source" >[link do dokumentu]</a>
+                            <a href="ex06/lab6_10c.html" target="html-view">[widok dokumentu]</a>)</p>
+  <div class="toggle" id="ex10c"><pre class="brush: html"  >
+&lt;!doctype html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Zmiana koloru tla&lt;/title&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+    body { background-color:white; }
+  &lt;/style&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+  function get_cookie(Name) {
+    var search = Name + &quot;=&quot;
+    var returnvalue = &quot;&quot;;
+    if (document.cookie.length &gt; 0) {
+      offset = document.cookie.indexOf(search)
+      // if cookie exists
+      if (offset != -1) { 
+        offset += search.length
+        // set index of beginning of value
+        end = document.cookie.indexOf(&quot;;&quot;, offset);
+        // set index of end of cookie value
+        // -- alert ( &quot;[ offset = &quot;+offset+&quot;, end = &quot;+end+&quot; ]&quot; );
+        if (end == -1) end = document.cookie.length;
+        returnvalue=unescape(document.cookie.substring(offset, end))
+      }
+    }
+    return returnvalue;
+  }
+
+  function setcolor(what){
+    document.body.style.backgroundColor=what
+    document.cookie=&quot;bgcolor=&quot;+what
+  }
+
+  function setcolor1(){
+    if (get_cookie(&quot;bgcolor&quot;) != &quot;&quot;) {
+      var bgcolor = get_cookie(&quot;bgcolor&quot;);
+      document.body.style.backgroundColor = bgcolor;
+     }
+  }
+
+  &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body onload=&quot;setcolor1();&quot;&gt;
+    &lt;form name=&quot;a1&quot;&gt;
+    &lt;p&gt;&lt;select name=&quot;a2&quot; size=&quot;1&quot;&gt;
+         &lt;option value=&quot;white&quot;&gt;Select background color &lt;/option&gt;
+         &lt;option value=&quot;#F0F0F0&quot;&gt;Light gray&lt;/option&gt;
+         &lt;option value=&quot;#80FFFF&quot;&gt;Sky blue&lt;/option&gt;
+         &lt;option value=&quot;#C6C6FF&quot;&gt;Purple&lt;/option&gt;
+         &lt;option value=&quot;white&quot;&gt;White&lt;/option&gt;
+       &lt;/select&gt;
+    &lt;input type=&quot;button&quot; value=&quot;Go&quot; onClick=&quot;setcolor(document.a1.a2.options[document.a1.a2.selectedIndex].value)&quot;&gt;&lt;/p&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+  </pre></div>
+</li>  
+
+  </section>
+  </article>
+
+  <a id="Links"></a><article>
+  <header><h3>Linki do dodatkowych materiałów (dostęp na dzień 13.11.2019)</h3></header>
+  
+  <ol>
+     <li><b>JavaScript</b></li>
+     <!--li><a href="http://java-script.awardspace.com/index.html" class="external text" title="http://java-script.awardspace.com/index.html" rel="nofollow" target="links">Język JavaScript</a></li-->
+     <li><a href="http://kursjs.pl/index.php" class="external text" title="http://kursjs.pl/index.php" rel="nofollow" target="links">Kurs Javascript</a></li>  
+     <li><a href="http://www.w3schools.com/jsref/default.asp" class="external text" title="http://www.w3schools.com/jsref/default.asp" rel="nofollow" target="links">JavaScript and HTML DOM Reference</a></li>        
+     <li><a href="http://javascript.info/" class="external text" title="http://javascript.info/" rel="nofollow" target="links">The JavaScript Tutorial</a></li>
+     <li><a href="https://developer.mozilla.org/pl/docs/Web/JavaScript" class="external text" title="https://developer.mozilla.org/pl/docs/Web/JavaScript" rel="nofollow" target="links">Mozilla - JavaScript</a></li> 
+     <!--li><b>Grafika canvas</b></li>
+     <li><a href="http://www.kurshtmlcss.pl/kurs-html/lekcja18-canvas.php" class="external text" title="http://www.kurshtmlcss.pl/kurs-html/lekcja18-canvas.php" rel="nofollow" target="links">LEKCJA 18: CANVAS</a></li>
+     <li><a href="https://msdn.microsoft.com/pl-pl/library/kurs-html5--canvas--podstawy.aspx" class="external text" title="https://msdn.microsoft.com/pl-pl/library/kurs-html5--canvas--podstawy.aspx" rel="nofollow" target="links">Kurs HTML5 - Canvas - Podstawy</a></li>
+     <li><a href="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" class="external text" title="https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial" rel="nofollow" target="links">Canvas tutorial</a></li>
+     <li><a href="http://www.w3schools.com/graphics/canvas_intro.asp" class="external text" title="http://www.w3schools.com/graphics/canvas_intro.asp" rel="nofollow" target="links">HTML Canvas Tutorial</a></li-->
+  </ol>
+  
+ 
+  </article>  
+ <!-- 
+    </div>
+  </div>
+
+  <div id="foot" style="width: 800px;">
+    <table>
+      <tr><td><img height="1" src="./image/foot.gif" width="800" alt="line" /></td></tr>
+      <tr><td style="text-align:right; color:#314689; font-size:10px">
+           <i>Ostatnia modyfikacja: {last_update}</i>
+      </td></tr>
+    </table>
+  </div>
+  
+-->  
+  
+  </article>
+  </body>
+  </html>

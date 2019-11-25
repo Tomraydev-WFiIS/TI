@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript formularz</title>
+<script type="text/javascript">
+function cal() {
+document.form3.wynik.value=eval(document.form3.calculator.value);
+}
+</script>
+</head>
+<body>
+<h3>Formularze w JS</h3>
+<form name="form3">
+<input type="text" size="20" name="calculator">
+<input type="button" name="C1" value="Wylicz" onclick="cal()">
+<input type="reset" name="C2" value="Skasuj"> <br/>
+Wynik:<input type="text" size="20" name="wynik">
+</form>
+</body>
+</html>

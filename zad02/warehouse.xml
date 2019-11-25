@@ -1,0 +1,69 @@
+<?xml version="1.0" ?>
+<warehouse>
+    <group>
+        <name>Phones</name>
+
+        <product>
+            <name>Samsung Galaxy S10</name>
+            <price>3000</price>
+            <quantity>42</quantity>
+        </product>
+
+        <product>
+            <name>OnePlus 7 Pro</name>
+            <price>2500</price>
+            <quantity>68</quantity>
+        </product>
+
+        <product>
+            <name>Alcatel Go Flip</name>
+            <price>300</price>
+            <quantity>70</quantity>
+        </product>
+    </group>
+
+    <group>
+        <name>Televisions</name>
+
+        <product>
+            <name>Kiano Frameless 50"</name>
+            <price>1200</price>
+            <quantity>256</quantity>
+        </product>
+
+        <product>
+            <name>Samsung 55"</name>
+            <price>1900</price>
+            <quantity>512</quantity>
+        </product>
+
+        <product>
+            <name>Blaupunkt 23"</name>
+            <price>370</price>
+            <quantity>1024</quantity>
+        </product>
+    </group>
+
+    <group>
+        <name>Cameras</name>
+
+        <product>
+            <name>Nikon D330</name>
+            <price>530</price>
+            <quantity>101</quantity>
+        </product>
+
+        <product>
+            <name>Canon powershot G5</name>
+            <price>2000</price>
+            <quantity>7</quantity>
+        </product>
+
+        <product>
+            <name>Sony DSC-W800</name>
+            <price>300</price>
+            <quantity>21</quantity>
+        </product>
+    </group>
+    
+</warehouse>

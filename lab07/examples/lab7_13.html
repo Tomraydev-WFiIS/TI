@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<title>Canvas and Image</title>
+<style>
+body {
+background: #dddddd;
+}
+#canvas {
+   margin: 10px;
+   padding: 10px;
+   background: #ffffff;
+   border: thin inset #aaaaaa;
+}
+</style>
+
+</head>
+<body>
+<canvas id="e" width="500" height="400"></canvas>
+<script>
+  var canvas = document.getElementById("e");
+  var ctx = canvas.getContext("2d");
+  // dane wej¶ciowe
+  var inputData = [99, 60, 20, 50, 180, 70, 125, 100, 12];
+ 
+  var canvasWidth = 500;
+ 
+  // miejsce, od którego zaczynamy rysowanie
+  var x_from = 40;
+ 
+  // co ile - odleg³o¶æ miêdzy s³upkami
+  var step = Math.round(canvasWidth / inputData.length) - 5;
+ 
+  for (var i = 0; i < inputData.length; i++) {
+    // pozycja x nastêpnego s³upka
+    var x_next = x_from + (i * step) - 20;
+ 
+    // rysowanie s³upka...
+    ctx.fillStyle = "rgba(50, 150, 250, 1)";
+    ctx.fillRect(x_next, 150, 40, -inputData[i]);
+ 
+    // oraz jego cienia
+    ctx.fillStyle = "rgba(10, 10, 50, 0.4)";
+    ctx.fillRect(x_next, 150, 45, -inputData[i]);
+}
+</script>
+</body>
+</html>
+
+

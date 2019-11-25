@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<title>Kalkulator</title>
+<meta charset="UTF-8">
+</head>
+<body>
+<form name="calculator">
+<input type="text" disabled id="total" style="text-align: right; background: white; width:" />
+</form>
+<table>
+<tr>
+<td><input type="button" value="C" style="width: 100%" onclick="calculator.total.value = ''"></td>
+<td><input type="button" value="/" style="width: 100%" onclick="calculator.total.value += '/'"></td>
+<td><input type="button" value="*" style="width: 100%" onclick="calculator.total.value += '*'"></td>
+<td><input type="button" value="-" style="width: 100%" onclick="calculator.total.value += '-'" ></td>
+</tr>
+<tr>
+<td><input type="button" value="7" onclick="calculator.total.value += '7'"></td>
+<td><input type="button" value="8" onclick="calculator.total.value += '8'"></td>
+<td><input type="button" value="9" onclick="calculator.total.value += '9'"></td>
+<td rowspan="2"><input type="button" onclick="calculator.total.value += '+'" style="height: 50px; vertical-align: middle" value ="+"></td>
+</tr>
+<tr>
+<td><input type="button" value="4" onclick="calculator.total.value += '4'"></td>
+<td><input type="button" value="5" onclick="calculator.total.value += '5'"></td>
+<td><input type="button" value="6" onclick="calculator.total.value += '6'"></td>
+</tr>
+<tr>
+<td><input type="button" value="1" onclick="calculator.total.value += '1'"></td>
+<td><input type="button" value="2" onclick="calculator.total.value += '2'"></td>
+<td><input type="button" value="3" onclick="calculator.total.value += '3'"></td>
+<td rowspan="2"><input type="button" onclick="calculator.total.value = eval(calculator.total.value)" style="height: 50px; vertical-align: middle" value ="="></td>
+</tr>
+<tr>
+<td colspan="2"><input type="button" style="width: 68px; text-align: center" value="0" onclick="calculator.total.value += '0'"></td>
+<td><input type="button" value="." style="width: 100%" onclick="calculator.total.value += '.' "></td>
+</tr>
+</table>
+</body>
+</html>

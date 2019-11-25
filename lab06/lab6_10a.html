@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+  <title>Lista zmiennych Cookie</title>
+  <meta charset="UTF-8">
+  <script language="JavaScript" >
+     window.onload = showCookies ;
+     function showCookies() {
+       var outMsg = '';
+       if (document.cookie.length = 0 ) 
+         { outMsg = " Brak ciasteczek "  ; }
+       else  {
+          outMsg += "<table><tr><th>Nazwa ciasteczka</th><th>Zawartosć ciasteczka</th></tr>" ;
+          var thisCookie = document.cookie.split(";");
+          for ( var i=0; i<thisCookie.length; i++ )
+            {
+               outMsg += "<tr><td>" + thisCookie[i].split("=")[0] + "</td>";
+               outMsg += "<td>" + thisCookie[i].split("=")[1] +"</td></tr></tr>";
+            }
+          outMsg += "</table>";
+       }
+       document.getElementById("cookieData").innerHTML = outMsg ; 
+     }       
+  </script>
+</head>
+<body>
+    <h3>Lista ciasteczek</h3>
+    <p id="cookieData"> </p>
+</body>
+</html>

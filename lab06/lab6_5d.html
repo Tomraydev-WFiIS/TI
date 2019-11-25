@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" />
+<title>JavaScript - skrypt 5d</title>
+</head>
+<body>
+<h3>Odczyt wartości klawisza</h3>
+<script>
+document.addEventListener("keypress", myFunction);
+
+function myFunction(evt) {
+alert("Obsluga zdarzenia onkeypress: \n"
+      + "własność keyCode: " + evt.keyCode + "\n"
+      + "własność which: " + evt.which + "\n"
+      + "własność charCode: " + evt.charCode + "\n"
+      + "naciśniety znak: "
+      + String.fromCharCode(evt.charCode) + "\n"
+     );
+}
+</script>
+</body>
+</html>

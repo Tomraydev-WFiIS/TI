@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+  <title>Zmiana elementów graficznych</title>
+  <meta charset="UTF-8">
+  <script type="text/javascript">
+     window.onload = nameFieldInit ;
+     function nameFieldInit() {
+       var userName = '';
+       if (document.cookie.length > 0 )   {
+          var dimCookie = document.cookie.split(";") ; 
+          for ( var i=0; i<dimCookie.length; i++ )  {
+            dataCookie = dimCookie[i].split("=") ;
+            // alert ( dataCookie[0]+" => "+dataCookie[1]) ;
+            if ( "userName" == dataCookie[0] )  { 
+                userName = dataCookie[1] ;
+                document.getElementById("nameField").value = userName;
+                document.getElementById("nameField").onblur = setCookie;
+            }
+          }
+       }
+     }
+     
+     function setCookie() {
+       var expireDate = new Date();
+       expireDate.setMonth(expireDate.getMonth()+6);
+       var userName = document.getElementById("nameField").value;
+       document.cookie = "userName=" + userName + ";expires=" + expireDate.toGMTString();
+     }  
+        
+  </script>
+</head>
+<body>
+  <form onsubmit="setCookie()" >
+    <p>Podaj swoje imię: <input type="text" id="nameField" /> </p>
+    <input type="submit" />
+  </form>
+</body>
+</html>

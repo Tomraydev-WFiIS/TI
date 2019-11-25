@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pl">
+    
+    <head>
+        <title>Zadanie 3</title>
+        <meta name="author" content="Tomasz Rajchel" />
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="style.css" type="text/css" />
+        <script src="script.js"></script>
+</head>
+
+<body>
+    <div id="form">
+            <h2>Zrezygnuj ze studiów na AGH, zapisz się do Akademii pana Kleksa!</h2>
+    <form name="student" onsubmit="return validate()" method="POST">
+        <ul>
+            <li>
+                <label for="name">Imię</label><br />
+                <input type="text" name="name" required />
+            </li>
+            <li>
+                <label for="surname">Nazwisko</label><br />
+                <input type="text" name="surname" required />
+            </li>
+            <li>
+                <label for="email">Adres email</label><br />
+                <input type="email" name="email" required />
+            </li>
+            <li>
+                <label for="studyYear">Rok studiów</label><br />
+                <select name="studyYear" required>
+                    <option value="0" disabled>wybierz rok</option>
+                    <option value="1">rok 1</option>
+                    <option value="2">rok 2</option>
+                    <option value="3">rok 3</option>
+                    <option value="4">rok 4</option>
+                    <option value="5">rok 5</option>
+                </select>
+            </li>
+            <li>
+                <input type="submit" value="Wyślij" class="btn"/>
+            </li>
+        </ul>
+    </form>
+    <a href="./read.py" target="_blank">Lista studentów</a>
+    </div>
+</body>
+
+</html>
