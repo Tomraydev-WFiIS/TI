@@ -28,6 +28,7 @@ print("""
 </head>
 
 <body>
+<div>
 <table>
         <tr>
             <th>Imię</th>
@@ -41,6 +42,7 @@ print_students()
 
 print("""
 </table>
+</div>
 </body>
 
 </html>
