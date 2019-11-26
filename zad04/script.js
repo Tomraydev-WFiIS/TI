@@ -21,11 +21,14 @@ function send(event){
     let XHR = new XMLHttpRequest();                  // utworz obiekt XHR
     XHR.open('POST', "../cgi-bin/zad04/update.py", true);  // otworz polaczenie z plikiem python - asynchroniczne
     data = 'info=' + encodeURIComponent(choice)
-
+    
     XHR.onreadystatechange = function (aEvt) {// onreadystatechange . . .
+        // console.log("working");
+        console.log(XHR.readyState);
+        console.log(XHR.status);
         if (XHR.readyState == 4) {
             if (XHR.status == 200)  {
-                // console.log(XHR.responseText);
+                console.log(XHR.responseText); //debug
                 let response = JSON.parse(XHR.responseText);   //wczytaj dane
                 console.log(response) //debug
                 draw();   //rysuj histogram

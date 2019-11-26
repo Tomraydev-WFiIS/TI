@@ -8,4 +8,4 @@ import json
 
 print "Status: 200"
 print "Content-Type: application/json\n\n"
-print data
+print "dummy data"
