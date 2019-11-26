@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <title>Zadanie 4</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <meta charset="UTF-8" />
+    <meta name="author" content="Tomasz Rajchel" />
+    <script src="script.js"></script>
+</head>
+
+<body onload="draw()">
+    <div class="row">
+            <div class="column">
+                    <form name="form1" action="#" method="post">
+                        <p>Jaka jest twój ulubiony przedmiot?</p>
+                        <ul>
+                            <li><input name="course" id="BD" type="radio" value="1"/>Bazy danych</li>
+                            <li><input name="course" id="MN" type="radio" value="2"/>Metody numeryczne</li>
+                            <li><input name="course" id="AO" type="radio" value="3"/>Analiza obrazów</li>
+                            <li><input name="course" id="TI" type="radio" value="4"/>Techniki internetowe</li>
+                            <li><button onclick="return send(event);">Dodaj</button></li>
+                        </ul>
+                    </form>
+            </div>
+            <div class="column"> 
+                <canvas id="histogram" width="640px" height="300px"></canvas>
+            </div>
+    </div>
+
+</body>
+
+</html>
