@@ -5,7 +5,7 @@ import json
 
 # odbierz dane z formularza
 form = cgi.FieldStorage()
-course = form.getvalue("info");
+course = form.getvalue("info")
 
 # wczytaj dane z pliku
 with open("../../zad04/data.json", "r") as f:
@@ -16,7 +16,7 @@ data[course] += 1
 
 # zapisz do pliku
 with open("../../zad04/data.json", "w") as f:
-   f.write(json.dumps(data))
+    f.write(json.dumps(data))
 
 # wyslij dane do skrytu js
 

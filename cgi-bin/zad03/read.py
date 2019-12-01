@@ -9,14 +9,13 @@ def print_students():
                 print("<td>" + e + "</td>")
             print("</tr>")
 
+
 # output
 print("Content-type: text/html\n")
 
 
-
-
-
-print("""
+print(
+    """
 <!doctype html>
 <html lang="pl">
     
@@ -36,15 +35,18 @@ print("""
             <th>Adres email</th>
             <th>Rok studiów</th>
         </tr>
-""")
+"""
+)
 
 print_students()
 
-print("""
+print(
+    """
 </table>
 <a href="../../zad03/zad03.html" >Formularz</a>
 </div>
 </body>
 
 </html>
-""")
+"""
+)
