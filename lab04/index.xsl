@@ -21,8 +21,8 @@
     </div>
 
     <div class="server-box">
-        <a class="server-link" href="https://tomek-ti-2019.eu-gb.mybluemix.net/">IBM Cloud</a>
-        <a class="server-link" href="http://pascal.fis.agh.edu.pl/~7rajchel/TI/">Pascal</a>
+        <a class="server-link" href="https://tomasz-rajchel-homepage.eu-gb.mybluemix.net/">IBM Cloud</a>
+        <a class="server-link" href="http://pascal.fis.agh.edu.pl/~7rajchel/">Pascal</a>
     </div>
 
     <div class="content">
