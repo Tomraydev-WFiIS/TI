@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+    <title>Lab08</title>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+    <meta charset="UTF-8" />
+    <meta name="author" content="Tomasz Rajchel" />
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <div>
+        <button onclick="window.location.href='index.html'">Dodaj Figurę</button>
+        <button onclick="window.location.href='figures.html'">Lista figur</button>
+        <p>Parametry figury</p>
+        <form name="form1" action="#" method="post">
+            <ul>
+                <li><input name="figure_name" id="figure_name" type="text" required/>Nazwa Figury</li>
+                <li><input name="vertex_n" id="vertex_n" type="number" min="3" max="5" required/>Liczba wierzcholkow &lt;3,5&gt;</li>
+            </ul>
+            <p>Wspolrzedne wierzcholkow</p>
+            <div class="x">
+                    <p>Wspolrzedna X</p>
+                    <input name="x0" id="x0" type="number" step="any" value="0.00"/><br/>
+                    <input name="x1" id="x1" type="number" step="any" value="0.00"/><br/>
+                    <input name="x2" id="x2" type="number" step="any" value="0.00"><br/>
+                    <input name="x3" id="x3" type="number" step="any" value="0.00"><br/>
+                    <input name="x4" id="x4" type="number" step="any" value="0.00"><br/>
+            </div>
+            <div class="y">
+                    <p>Wspolrzedna Y</p>
+                    <input name="y0" id="y0" type="number" step="any" value="0.00"><br/>
+                    <input name="y1" id="y1" type="number" step="any" value="0.00"><br/>
+                    <input name="y2" id="y2" type="number" step="any" value="0.00"><br/>
+                    <input name="y3" id="y3" type="number" step="any" value="0.00"><br/>
+                    <input name="y4" id="y4" type="number" step="any" value="0.00"><br/>
+            </div>
+            <button onclick="return send(event);">Wyslij</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
