@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<zajecia>
+  <nazwa>techniki internetowe</nazwa>
+  <termin>poniedzialek, 10.00</termin>
+  <sala>D10, lab. 206</sala>
+  <studenci>
+   <student>
+     <nazwisko>Abacki</nazwisko>
+     <imie>Adam</imie>
+     <email>abacki@agh.edu.pl</email>
+   </student>
+   <student>
+     <nazwisko>Backi</nazwisko>
+     <imie>Krzysztof</imie>
+     <email>backi@agh.edu.pl</email>
+   </student>
+   <student>
+    <nazwisko>Ewa</nazwisko>
+    <imie>Cabacka</imie>
+    <email>cabacka@agh.edu.pl</email>
+   </student>
+ </studenci>
+</zajecia>
