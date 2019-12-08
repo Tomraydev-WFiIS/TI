@@ -1,7 +1,8 @@
 #!/usr/bin/python
-print "Content-Type: application/xml"
-print
-print """\
+print("Content-Type: application/xml")
+print()
+print(
+    """\
 &lt;?xml version=\"1.0\" ?&gt;
 &lt;students&gt;
  &lt;student&gt;
@@ -14,3 +15,4 @@ print """\
  &lt;/student&gt; 
 &lt;/students&gt;
 """
+)
