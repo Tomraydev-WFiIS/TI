@@ -1,0 +1,1134 @@
+
+
+<!DOCTYPE HTML>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <link type="text/css" href="labs.css" rel="stylesheet" />
+  <title>IT 2019 - Lab.10</title>
+  <meta name="Author" content="Antoni Dydejczyk" />
+  <link rel="SHORTCUT ICON" href="../../image/anton2.ico" /> 
+  <script >
+     hideCode=".: Ukryj kod skryptu :.";
+     showCode=".: Pokaz kod skryptu :.";
+     function toggleDisplayStyle(elemId)
+      {
+         console.log(elemId);
+         el = document.getElementById(elemId);
+         el.style.display = el.style.display == 'block' ? 'none' : 'block';
+      }
+  </script>
+<link type="text/css" rel="stylesheet" href="./styles/szablon.css" />
+<link type="text/css" rel="stylesheet" href="./styles/shCore.css" /> 
+<link type="text/css" rel="stylesheet" href="./styles/shThemeDefault.css" />
+<script  src="./script.js"> </script>
+<!--script  src="./labs.js"> </script-->
+<script  src="./scripts/shCore.js"></script>
+<script  src='./scripts/shAutoloader.js' ></script>
+<script  src="./scripts/shBrushBash.js"></script>
+<script  src="./scripts/shBrushCpp.js"></script>
+<script  src="./scripts/shBrushCss.js"></script>
+<script  src="./scripts/shBrushJScript.js"></script>
+<script  src="./scripts/shBrushPhp.js"></script>
+<script  src="./scripts/shBrushPerl.js"></script>
+<script  src="./scripts/shBrushPython.js"></script>
+<script  src="./scripts/shBrushPlain.js"></script>
+<script  src="./scripts/shBrushSql.js"></script>
+<script  src="./scripts/shBrushXml.js"></script>
+<script >
+	// SyntaxHighlighter.config.clipboardSwf = './scripts/clipboard.swf';
+	SyntaxHighlighter.all();
+  // When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        document.getElementById("myBtn").style.display = "block";
+        document.getElementById("top").style.display = "none";        
+    } else {
+        document.getElementById("myBtn").style.display = "none";
+        document.getElementById("top").style.display = "block";        
+    }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+
+function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+/*
+    var startProductBarPos=-1;
+    window.onscroll=function(){
+      var bar = document.getElementById('nav_float');
+      if(startProductBarPos<0)startProductBarPos=findPosY(bar);
+
+      if(pageYOffset>startProductBarPos){
+        bar.style.position='fixed';
+        bar.style.top=0;
+      }else{
+        bar.style.position='relative';
+      }
+
+    };
+
+    function findPosY(obj) {
+      var curtop = 0;
+      if (typeof (obj.offsetParent) != 'undefined' && obj.offsetParent) {
+        while (obj.offsetParent) {
+          curtop += obj.offsetTop;
+          obj = obj.offsetParent;
+        }
+        curtop += obj.offsetTop;
+      }
+      else if (obj.y)
+        curtop += obj.y;
+      return curtop;
+    }
+*/    
+</script>
+<style>
+.top_always {
+  position: fixed; 
+  top: 0;
+  left: 0;
+  width: 98%;
+  height: 50px;
+  z-index: 10;
+  background: #eeeeee;
+  padding: 10px;
+  opacity: 0.9;
+  -webkit-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+  -moz-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+}
+</style>
+</head>
+<body>
+  
+ 
+    <div style="height: 60px;">
+    </div>
+    <div id="top" class="top_always " style="vertical-align: middle;">
+    <a href="http://newton.fis.agh.edu.pl/~antek/index.php?sub=it"><img src="images/home_site_ad.svg" style="height:45px; width: 45px; float:left;  " alt="home_site" /></a>
+    <h1 style="margin-left: 80px; font-size: x-large; font-weight: bold; text-align: left; 
+    direction: rtl; border-bottom: none; color:navy;   padding: 8px 0px 0px 0px; "> 
+    <a href="http://newton.fis.agh.edu.pl/~antek/index.php?sub=it_cw">
+    Zajęcia 10 - Wzorzec MVC i PDO</a> 
+    <span class="small"> [ ver. 2019.12.07.110 ] </span>
+    </h1>
+    </div>
+ 
+  
+  <button style="font-size:24px; " onclick="topFunction()" id="myBtn" title="Go to top">&#9651;</button>
+<div>  
+<div class="toc">
+ <div class="tocheader"> <script >showTocToggle("+","-")</script>Zawartość strony</div>
+ <div id="tocinside">
+  <ul class="toc">
+  <li class="level1"><span class="li"><a href="#plan" class="toc">Plan zajęć</a></span></li>
+  <li class="level1"><span class="li"><a href="#task1" class="toc">Wzorzec MVC</a></span></li>
+  <li class="level1"><span class="li"><a href="#task2" class="toc">Prosty schemat szablonu</a></span></li>
+  <li class="level1"><span class="li"><a href="#task3" class="toc">Kontroler</a></span></li>
+  <li class="level1"><span class="li"><a href="#task4" class="toc">Wzorzec modelu i tabela</a></span></li>
+  <li class="level1"><span class="li"><a href="#task5" class="toc">Polaczenie z baza danych</a></span></li>
+  <li class="level1"><span class="li"><a href="#task6" class="toc">Wydruk wszystkich rekordów</a></span></li>
+  <li class="level1"><span class="li"><a href="#task7" class="toc">Wprowadzamy dane do bazy</a></span></li>
+  <li class="level1"><span class="li"><a href="#task8" class="toc">Nowy szblon główny</a></span></li>
+  <li class="level1"><span class="li"><a href="#example" class="toc">Linki do przykładów</a></span></li>
+  <li class="level1"><span class="li"><a href="#Links" class="toc">Linki do stron WWW</a></span></li>
+  </ul>
+ </div>
+</div>
+
+<a id="plan"></a><article>
+<header><h3> Plan zajęć </h3></header>
+ 
+<ul>
+<li>Wzorzec MVC</li>
+<li>Komponent modelu MVC - widok i implementacja szablonu w PHP</li>
+<li>Komponent modelu MVC - kontroler</li>
+<li>Komponent modelu MVC - model i wydruk danych z tabeli</li>
+<li>Interfejs PDO - połączenie z bazą danych</li>
+<li>Wydruk danych z bazy danych</li>
+<li>Wprowadzanie danych do bazy danych</li>
+<li>Modyfikacja szablonu głównego i style CCS w projekcie</li>
+</ul>
+
+</article>
+
+
+<a id="task1"></a><article>
+<header><h3>Wzorzec MVC</h3></header>
+
+<p>W ramach zajęć zostanie przedstawiona konstrukcja aplikacji w oparciu o wzorzec MVC. 
+Wzorzec MVC składa się z trzech komponentów programowych - modelu, widoku i kontrolera. 
+Komponent kontrolera odpowiedzialny jest za sterowanie aplikacją, powinien zawierać kod php, 
+brak zapytań do bazy danych oraz brak kodu HTML. Komponent szablonów odpowiedzialny jest 
+za przygotowanie stron przesyłanych do użytkownika. Zawiera on skrypty wprowadzające wartości 
+zmiennych do odpowiednich szablonów przygotowanych w języku HTML. Na koniec komponent modelu 
+zawiera interfejs połączenia z źródłem danych, zawiera on instrukcje względnie polecenia 
+przetwarzające dane w źródle. Komponent ten nie powinien zawierać kodu HTML. 
+Na rys.1 przedstawiono przykładowy diagram sekwencji prezentujący przepływ danych w ramach
+modelu MVC.</p>
+
+   <figure>
+	    <!--img style="width:70%;height:70%" src="ex04/lab4_cookie.jpg" alt="Lab4_cookie"-->
+      <img src="images/mvc_diagram.svg" style="width:65%; background: white;" alt="Lab10_MVC" />
+	    <figcaption style="text-align:center; width:70%">Rys.1 Przykładowy diagram sekwencji realizowany w modelu MVC.</figcaption>
+   </figure> 
+
+<p>W ramach zajęć zostanie opracowana prosta aplikacja spełniające przedstwione powyżej kryteria. 
+Struktura plików w opracowanym projekcie została przedstawiona poniżej.</p>
+
+<pre class="t1" >
+mvc2/
+  &#9500;&#9472;&#9472;&#9659; appl/  { View.php, Controller.php }
+  &#9500;&#9472;&#9472;&#9659; template/ { hello.tpl, table.tpl, main.tpl, listall.tpl, form.tpl, menu.tpl }
+  &#9500;&#9472;&#9472;&#9659; test/ { Test.php }
+  &#9500;&#9472;&#9472;&#9659; info/ { Model.php, Info.php }
+  &#9500;&#9472;&#9472;&#9659; baza/ { Model.php, Baza.php }
+  &#9500;&#9472;&#9472;&#9659; sql/ { baza.sql, baza.db }
+  &#9500;&#9472;&#9472;&#9659; css/  { main.css }
+{ test_hello.php, test_view.php, test_controller.php, index.php }
+</pre>
+
+</article> 
+
+<a id="task2"></a><article>
+<header><h3>Szablon i jego obsługa</h3></header>
+
+
+<p>W ramach tego zadania przedstawione zostaną skrypty realizujące funkcjonalność 
+widoku w naszej prostej aplikacji zrealizowanej zgodnie
+z wzorcem MVC. Na początek prosty szablon, w którym będziemy modyfikować niektóre 
+fragmenty kodu. Wykorzystamy język php i polecenia 
+echo lub print.</p>  
+
+<ol>
+<li>Szablon w HTML. Tworzymy plik <b>hello.tpl</b> i umieszczamy w katalogu <u>template</u>.
+
+  <p>Plik <b>hello.tpl</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex01a')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=template/hello.tpl" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex07/ajax1.html" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex01a"><pre class="brush: html"  >
+&lt;!DOCTYPE html&gt;
+ 
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Simple MVC&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;   
+        &lt;header&gt;&lt;?php echo $title; ?&gt;&lt;/header&gt;
+        &lt;section&gt;
+          &lt;header&gt;&lt;?php echo $header; ?&gt;&lt;/header&gt;
+          &lt;article&gt;&lt;?php echo $content; ?&gt;&lt;/article&gt; 
+        &lt;/section&gt;
+        &lt;footer&gt;Techniki internetowe &amp;copy; 2019&lt;/footer&gt; 
+    &lt;/body&gt;
+&lt;/html&gt;
+  </pre></div>  
+</li>  
+
+<li>Sprawdzamy poprawność działania naszego szablonu poniższym skryptem testowym 
+(plik <b>test_hello.php</b>).
+
+  <p>Plik <b>test_hello.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex01b')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=test_hello.php" target="source" >[link do dokumentu]</a>
+                      <a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/test_hello.php"> [widok dokumentu - server Pascal]</a> )</p>
+                      <!--a href="ex07/ajax1.html" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex01b"><pre class="brush: php"  >
+&lt;?php
+
+$title = 'Simple MVC' ;
+$header = 'Test template' ;
+$content = '&lt;p&gt;Hello, World&lt;/p&gt;' ;
+include ('template/hello.tpl') ;
+
+?&gt;  </pre></div>  
+</li>
+
+
+<li>W kolejnym punkcie zadania opracujemy klasę do obsługi wykorzystywanych 
+w projekcie szablonów. Klasa ta będzie wykorzystywana w naszym projekcie "Simple MVC" 
+do obsługi widoku. Klasę <mark>View</mark> zapisujemy w pliku <b>View.php</b> i umieszczamy w katalogu <u>appl</u>. 
+
+  <p>Plik <b>View.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex01c')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=appl/View.php" target="source" >[link do dokumentu]</a> ) </p>
+                      <!--a href="ex07/ajax1.html" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex01c"><pre class="brush: php"  >
+&lt;?php
+
+namespace appl  ;
+ 
+class View
+{
+    protected $_file;
+    protected $_data = array();
+     
+    public function __construct($template)
+    {
+        $file = 'template/'.strtolower($template).'.tpl' ;
+        if ( file_exists($file) )  
+         { $this-&gt;_file =  $file ; }
+        else 
+         { throw new Exception(&quot;Template &quot; . $file . &quot; doesn't exist.&quot;) ; }
+    }
+     
+    public function __set($key, $value)
+    {
+        $this-&gt;_data[$key] = $value;
+    }
+     
+    public function __get($key) 
+    {
+        return $this-&gt;_data[$key];
+    }
+     
+    public function __toString()
+    {         
+        extract($this-&gt;_data);
+        ob_start();
+        include($this-&gt;_file);
+        $output = ob_get_contents();
+        ob_end_clean();
+        return $output;
+    }
+}
+
+?&gt;  </pre></div> 
+</li>
+
+<li>Opracowaną klasę przetestujemy przy pomocy poniższego skryptu testowego. 
+(plik <b>test_view.php</b> w głównym katalogu).
+
+  <p>Plik <b>test_view.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex01d')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=test_view.php" target="source" >[link do dokumentu]</a> 
+                                            <a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/test_view.php"> [widok dokumentu - server Pascal]</a> )</p> 
+                      <!--a href="ex07/ajax1.html" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex01d"><pre class="brush: php"  >
+&lt;?php
+
+include 'appl/View.php' ;
+
+use appl\View ;
+
+$view = new view('hello');
+
+$view-&gt;title = 'Simple MVC' ;
+$view-&gt;header = 'Test template' ;
+$view-&gt;content = '&lt;p&gt;Hello, World&lt;/p&gt;' ;
+
+echo $view ;
+
+?&gt;  </pre></div>
+</li>
+</ol>
+
+
+</article>
+
+
+<a id="task3"></a><article>
+<header><h3>Kontroler naszej aplikacji</h3></header>
+
+
+<p>Zadaniem kontrolera jest odbiór żądań klienta i odpowiednia ich obsługa. 
+W przypadku prostego żądania wystarczy pobrać odpowiedni szablon i wysłać odpowiedź 
+do klienta poprzez widok, w bardziej złożonej sytuacji, należy pobrać dane np. z bazy 
+danych i po przetworzeniu wysłać informację do klinta. 
+Ten element zadania najczęciej wykonuje w wzorcu MVC komponent modelu. 
+W ramach tego punktu opracujemy prosty kontroler
+dla naszej aplikacji. Do sterowania wykorzystamy parametry przesyłane w 
+części QUERY_STRING adresu URL'u wywołania.
+Schematycznie można to przedstawić następująco:</p>
+<pre class="t1" >
+<span style="font-weight: bold">index.php?sub=zadanie&action=polecenie </span>
+</pre>
+<p>gdzie poprzez zmienną <b>sub</b> wybierzemy zadanie, a poprzez <b>action</b>
+ wybierzemy odpowiednie polecenie.</p>
+
+<p>W ramach naszego projektu kolejne funkcjonalności aplikacji będą umieszczane 
+w osobnych katalogach. Każda funkcjonalność będzie obsługiwana 
+przez swój kontroler, który będzie rozszerzał funkcjonalność głównego kontrolera. </p>
+
+<ol>
+<li>Klasa głównego kontrolera <mark>Controller</mark> została umieszczona
+w pliku <b>Controller.php</b> w katalogu <u>appl</u>.
+
+  <p>Plik <b>Controller.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex02a')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=appl/Controller.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex02a"><pre class="brush: php"  >
+&lt;?php
+
+namespace appl  ;
+
+abstract class Controller {
+ 
+   protected $css ; 
+   protected $menu ; 
+
+   function __construct() {
+      $this-&gt;css  = &quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;css/main.css\&quot; type=\&quot;text/css\&quot; media=\&quot;screen\&quot; &gt;&quot; ;
+      $this-&gt;menu = file_get_contents ('template/menu.tpl') ;
+      //$this-&gt;css = '' ;
+      //$this-&gt;menu = '' ;
+   }
+
+   static function http404() {
+      header('HTTP/1.1 404 Not Found') ;
+      print '&lt;!doctype html&gt;&lt;html&gt;&lt;head&gt;&lt;title&gt;404 Not Found&lt;/title&gt;&lt;/head&gt;&lt;body&gt;&lt;p&gt;Invalid URL&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;' ;
+      exit ;
+   }
+
+   function __call($name, $arguments)
+   {
+        self::http404();
+   }
+
+}
+
+?&gt;  </pre></div>
+</li>
+
+<li>Na początek opracujemy klasę kontrolera <mark>Test</mark> testującą poprawność naszego rozwiązania.
+Klasa ta dziedziczy po klasie <mark>Controller</mark>. Odpowiedni skrypt umieścimy w katalogu <u>test/</u> pod nazwą <b>Test.php</b>.
+
+  <p>Plik <b>Test.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex02b')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=test/Test.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex02b"><pre class="brush: php"  >
+&lt;?php
+
+namespace test ;
+
+use appl\ { View, Controller } ;
+// use appl\Controller ;
+
+class Test extends Controller {
+
+   protected $layout ;
+
+   function __construct() {
+      $this-&gt;layout = new View('hello') ;    
+      $this-&gt;layout-&gt;title = 'Test view' ;
+      $this-&gt;layout-&gt;content = 'Hello, World !' ;
+   }
+
+  function index() {
+      return $this-&gt;layout ;
+  }
+}
+
+?&gt;  </pre></div>
+</li>
+
+
+<li>Poprawność opracowanych skryptów sprawdzimy wykorzystując przedstawiony poniżej 
+skrypt (<b>test_controller.php</b>).
+
+  <p>Plik <b>test_controller.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex02c')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=test_controller.php" target="source" >[link do dokumentu]</a> 
+                                            <a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/test_controller.php"> [widok dokumentu - server Pascal]</a> )</p>
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex02c"><pre class="brush: php"  >
+&lt;?php
+
+include 'appl/View.php' ;
+include 'appl/Controller.php' ;
+include 'test/Test.php' ;
+
+use test\Test ;
+
+$obj = new Test() ;
+echo $obj-&gt;index() ;
+
+?&gt;  </pre></div>
+</li>
+
+</ol>
+
+
+</article>
+
+
+<a id="task4"></a><article>
+<header><h3>Komponent model i jego implementacja w projekcie</h3></header>
+
+<p>Na początek opracujemy prosty model dostarczający dane z zawartej w nim tabeli. 
+W kolejnym etapie zrealizujemy część aplikacji, 
+wyświetlającą dane zawarte w tabeli. Opracowane w ramach tego punktu skrypty 
+będą już fragmentem naszej docelowej aplikacji, będzie to część informacyjna. 
+Odpowiednie skrypty i klasy zostaną umieszczone w katalogu info.</p> 
+
+
+
+<ol>
+<li>Na początek tworzymy klasę modelu - <mark>Model</mark> i umieszczamy 
+ją w pliku <b>Model.php</b> w katalogu <u>info/</u>.
+
+  <p>Plik <b>Model.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex03a')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=info/Model.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex03a"><pre class="brush: php"  >
+&lt;?php
+
+namespace info ;
+
+class Model 
+{
+
+   private $table = array() ;
+
+   function __construct() {
+      $this-&gt;table['main'] = 'mvc2/ , mvc2/index.php, mvc2/index.php?sub=Info, mvc2/index.php?sub=Info&amp;action=main' ;
+      $this-&gt;table['info'] = 'mvc2/index.php?sub=Info&amp;action=help' ;
+      $this-&gt;table['list'] = 'mvc2/index.php?sub=Baza, mvc2/index.php?sub=Baza&amp;action=list' ;
+      $this-&gt;table['form'] = 'mvc2/index.php?sub=Baza&amp;action=form' ;      
+   }
+
+   function getTable() {
+     // return 'test - table' ;
+     // print 'xxx' ;
+     // print_r($table) ;
+     return $this-&gt;table ;
+   }
+
+}
+
+?&gt;  </pre></div>
+</li>
+
+<li>Kolejnym elementem, który należy przygotować jest klasa kontrolera <mark>Info</mark>,
+którą umieszczamy w pliku <b>Info.php</b> w katalogu <u>info</u>.
+
+  <p>Plik <b>Info.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex03b')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=info/Info.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex03b"><pre class="brush: php"  >
+&lt;?php
+
+namespace info ;
+
+use appl\ { View, Controller } ;
+// use appl\Controller ;
+
+class Info extends Controller {
+
+   protected $layout ;
+   protected $model ;
+
+   function __construct() {
+      parent::__construct();
+      $this-&gt;layout = new View('main') ;   
+      $this-&gt;layout-&gt;css = $this-&gt;css ;
+      // $this-&gt;layout-&gt;css = &quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;css/main.css\&quot; type=\&quot;text/css\&quot; media=\&quot;screen\&quot; &gt;&quot; ;  
+      $this-&gt;layout-&gt;menu = $this-&gt;menu ;
+      // $this-&gt;layout-&gt;menu = file_get_contents ('template/menu.tpl') ;
+      $this-&gt;layout-&gt;title = 'Simple MVC' ;
+   }
+
+  function index() {
+      $this-&gt;layout-&gt;header  = 'Simple MVC' ;
+      $this-&gt;layout-&gt;content = 'Template - test !' ;
+      return $this-&gt;layout ;
+  }
+
+  function help() {
+      $this-&gt;model = new Model();
+      $this-&gt;layout-&gt;header  = 'Simple MVC' ;
+      $this-&gt;view = new View('table') ;
+      $this-&gt;view-&gt;data = $this-&gt;model-&gt;getTable() ;
+      $this-&gt;layout-&gt;content = $this-&gt;view ;
+      return $this-&gt;layout ;
+  }
+
+  function error( $text ) {
+      $this-&gt;layout-&gt;content = $text ;
+      return $this-&gt;layout ;       
+  }
+}
+
+?&gt;  </pre></div>
+</li>
+
+<li>Tworząc widok wykorzystujemy szablony <b>main.tpl</b> i <b>table.tpl</b>. Szablon <b>main.tpl</b> 
+jest kopią szablonu <b>hello.tpl</b> natomiast zawartość szablonu <b>table.tpl</b> przedstawia poniższy skrypt.
+
+  <p>Plik <b>table.tpl</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex03c')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=template/table.tpl" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex03c"><pre class="brush: html"  >
+&lt;table border=&quot;1&quot;&gt;
+  &lt;?php 
+    if ($data) { 
+      foreach ( $data as $key =&gt; $value ) { 
+        echo '&lt;tr&gt;&lt;td&gt;'.$key.'&lt;/td&gt;&lt;td&gt;'.$value.'&lt;/td&gt;&lt;/tr&gt;' ; }
+      //print_r($data) ;
+      }
+  ?&gt; 
+&lt;/table&gt;   </pre></div>
+</li>
+
+<li>Ostatnim elementem naszej aplikacji wymaganym do poprawnego działania jest przygotowanie 
+odpowiedniego pliku <b>index.php</b>. Przedstawiony poniżej plik zawiera funkcje __autoload() 
+oraz prostą logikę przetwarzającą żądanie przesłane przez klienta.
+
+  <p>Plik <b>index.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex03d')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=index.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex03d"><pre class="brush: php"  >
+&lt;?php
+/***************
+ * 
+ * 
+ ****************/
+function __autoload($class_name) {
+   // print '{'.$class_name.'}' ;
+   $path_to_class = __DIR__. '/' . str_replace('\\', DIRECTORY_SEPARATOR, $class_name) . '.php';
+   require_once($path_to_class);
+}
+               
+use info\Info ;
+use baza\Baza ;
+use test\Test ;
+
+try {
+
+  if (empty ($_GET['sub']))    { $contr = 'Info' ;   }
+  else                         { $contr = $_GET['sub'] ; }
+
+  if (empty ($_GET['action'])) { $action     = 'index' ;  }
+  else                         { $action     = $_GET['action'] ; } 
+  
+  //print $contr. ' ' . $action .' - ';
+  
+  switch ($contr) {           
+     case 'Info' :
+       $contr = &quot;info\\&quot;.$contr ;                      
+       break ;
+     case 'Baza' :
+       $contr = &quot;baza\\&quot; . $contr ;
+       break ;  
+  }
+  $controller = new $contr ;
+  echo $controller-&gt;$action() ;
+}
+catch (Exception $e) {
+  // echo 'Blad -.- : [' . $e-&gt;getCode() . '] ' . $e-&gt;getMessage() . '&lt;/br&gt;' ;
+  // echo __CLASS__.':'.__LINE__.':'.__FILE__ ;
+  // $contr = new info() ;
+  // echo $contr-&gt;error ( $e-&gt;getMessage() ) ;
+  echo 'Error: [' . $e-&gt;getCode() . '] ' . $e-&gt;getMessage() ;
+
+}
+
+?&gt;
+  </pre></div>
+</li>
+
+</ol>
+
+
+</article>
+
+
+<a id="task5"></a><article>
+<header><h3>Baza danych w projekcie</h3></header>
+         
+
+<p>Do realizacji projektu wymagana jest baza danych. Przykładową bazę danych 
+utworzymy w katalogu <u>sql</u> nadając mu uprawnienia:
+u+r+w+x g+r a+r+w+x. W katalogu tym utworzymy bazę danych baza.db wykorzystując 
+poniższy skrypt sql.</p>
+
+<pre class="brush: sql"> 
+create table osoba ( imie char(20), nazwisko char(20), miejscowosc char(20) ) ;
+insert into osoba ( imie, nazwisko, miejscowosc ) values ('Adam', 'Kowalski','Krakow');
+insert into osoba ( imie, nazwisko, miejscowosc ) values ('Marek','Babacki','Zakopane') ;
+insert into osoba ( imie, nazwisko, miejscowosc ) values ('Zofia','Cabacka','Warszawa') ;
+insert into osoba ( imie, nazwisko, miejscowosc ) values ('Marta','Dadacka','Olsztyn') ;
+insert into osoba ( imie, nazwisko, miejscowosc ) values ('Michal','Zawadzki','Katowice') ;
+</pre> 
+
+<p>Polecenie budujące bazę danych - sqlite3 baza.db &lt; baza.sql. Uprawnienia do pliku u+r+w g+r a+r+w.</p>
+
+</article>
+
+
+
+<a id="task6"></a><article>
+<header><h3>Wydruk rekordów zawartych w bazie danych - klasa PDO</h3></header>
+
+  
+<p>Do realizacji tego zadania wymagane jest opracowanie następujących skryptów: 
+skrypt modelu do obsługi bazy danych, skrypt kontrolera oraz pliku szablonu.</p>
+
+
+
+<ol>
+<li>Na początek przedstawiona zostanie klasa <mark>Model</mark> zawierająca obsługę bazy danych.
+Klasa ta została zawarta w pliku <b>baza/Model.php</b>.
+
+  <p>Plik <b>Model.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex04a')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=baza/Model.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex04a"><pre class="brush: php"  >
+&lt;?php
+
+namespace baza ;
+use PDO ;
+
+class Model 
+{  
+   static $dsn = 'sqlite:sql/baza.db'  ;
+   protected static $db ;
+   private $sth ;
+
+   function __construct()
+   {
+     $data = explode(':',self::$dsn) ;
+     if ( ! file_exists ( $data[1] ) ) { throw new Exception ( &quot;Database file doesn't exist.&quot; ) ;  }
+     self::$db = new PDO ( self::$dsn ) ;
+     self::$db-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) ; 
+   }
+
+
+   public function listAll()
+   {
+     $this-&gt;sth = self::$db-&gt;prepare('SELECT * FROM osoba') ;
+     $this-&gt;sth-&gt;execute() ;
+     $result = $this-&gt;sth-&gt;fetchAll() ;
+     return $result ;
+   }
+
+}
+
+?&gt;  </pre></div>
+</li>
+
+<li>Plik szablonu, który umożliwi wyświetlenie zawartości tabeli osoba, 
+przedstawia poniższy kod.(<b>template/listall.tpl</b>).
+
+  <p>Plik <b>listall.tpl</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex04b')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=template/listall.tpl" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex04b"><pre class="brush: html"  >
+&lt;table border=&quot;1&quot;&gt;
+ &lt;?php 
+    if ($data) { 
+       foreach ( $data as $row ) { 
+       echo '&lt;tr&gt;&lt;td&gt;'.$row['imie'].'&lt;/td&gt;&lt;td&gt;'.$row['nazwisko'].'&lt;/td&gt;&lt;td&gt;'.$row['miejscowosc'].'&lt;/td&gt;&lt;/tr&gt;' ;
+    }}
+ ?&gt; 
+&lt;/table&gt; 
+  </pre></div>
+</li>
+
+<li>Na koniec klasa kontrolera <mark>Baza</mark>. Klasa znajduje się w pliku <b>baza/Baza.php</b>.
+
+  <p>Plik <b>Baza.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex04c')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=baza/Baza.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex04c"><pre class="brush: php"  >
+&lt;?php
+
+namespace baza   ;
+
+use appl\ { View, Controller } ;
+// use appl\Controller ;
+
+class Baza extends Controller 
+{
+
+    protected $layout ;
+    protected $model ;
+
+    function __construct() {
+       parent::__construct();
+       $this-&gt;layout = new View('main') ;
+       $this-&gt;layout-&gt;css = $this-&gt;css ;
+       // $this-&gt;layout-&gt;css = &quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;css/main.css\&quot; type=\&quot;text/css\&quot; media=\&quot;screen\&quot; &gt;&quot; ; 
+       $this-&gt;layout-&gt;title  = 'Baza danych SQL' ;
+       $this-&gt;layout-&gt;menu = $this-&gt;menu ;
+       // $this-&gt;layout-&gt;menu = file_get_contents ('template/menu.tpl') ;
+       $this-&gt;model  = new Model() ;
+    }
+
+
+    function listAll() {     
+       $this-&gt;layout-&gt;header = 'Lista wszystkich rekordow' ;
+       $this-&gt;view = new View('listAll') ;
+       $this-&gt;view-&gt;data = $this-&gt;model-&gt;listAll() ;
+       $this-&gt;layout-&gt;content = $this-&gt;view ; 
+       return $this-&gt;layout ;
+    }
+    
+    function info ( $text ) {
+       $this-&gt;layout-&gt;content = $text ;
+       return $this-&gt;layout ; 
+    }
+
+
+
+    function index ()  {
+       // $this-&gt;layout-&gt;content = $text ;
+       return $this-&gt;layout ; 
+    }
+
+} 
+
+?&gt;  </pre></div>
+</li>
+</ol>
+
+
+</article>
+
+<a id="task7"></a><article>
+<header><h3>Wprowadzanie danych do bazy</h3></header> 
+
+<p>Kolejnym elementem tworzonego serwisu będzie opracowanie formularza do wprowadzania danych. 
+W tym celu dodamy do klasy kontrolera dwie metody: pierwsza wywołuje formularz natomiast 
+druga zapisuje dane do bazy danych. Dodatkowo należy dodać metodę zapisującą dane do 
+bazy danych w modelu oraz na koniec opracować odpowiednie szalony.</p>
+
+
+<p>Na początek dodajemy odpowiednie metody do klasy kontrolera (plik <b>baza/class/Baza.php</b>). 
+Wymagane są dwie metody: insertRec() - metoda wyświetlająca odpowiedni formularz 
+do wprowadzania danych oraz saveRec() - metoda umożliwiająca zapis danych do bazy danych. 
+Po uzupełnieniu metod klasa kontrolera została przedstawiona poniżej.</p>
+
+
+
+<ol>
+<li>Plik zawierający klasę Baza <b>(Baza.php)</b> (po modyfikacji).
+  <p>Plik <b>Baza.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex05a')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=baza/Baza_1.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex05a"><pre class="brush: php"  >
+&lt;?php
+
+namespace baza   ;
+
+use appl\ { View, Controller } ;
+// use appl\Controller ;
+
+class Baza extends Controller 
+{
+
+    protected $layout ;
+    protected $model ;
+
+    function __construct() {
+       parent::__construct();
+       $this-&gt;layout = new View('main') ;
+       $this-&gt;layout-&gt;css = $this-&gt;css ;
+       // $this-&gt;layout-&gt;css = &quot;&lt;link rel=\&quot;stylesheet\&quot; href=\&quot;css/main.css\&quot; type=\&quot;text/css\&quot; media=\&quot;screen\&quot; &gt;&quot; ; 
+       $this-&gt;layout-&gt;title  = 'Baza danych SQL' ;
+       $this-&gt;layout-&gt;menu = $this-&gt;menu ;
+       // $this-&gt;layout-&gt;menu = file_get_contents ('template/menu.tpl') ;
+       $this-&gt;model  = new Model() ;
+    }
+
+
+    function listAll() {     
+       $this-&gt;layout-&gt;header = 'Lista wszystkich rekordow' ;
+       $this-&gt;view = new View('listAll') ;
+       $this-&gt;view-&gt;data = $this-&gt;model-&gt;listAll() ;
+       $this-&gt;layout-&gt;content = $this-&gt;view ; 
+       return $this-&gt;layout ;
+    }
+    
+    function insertRec() {
+       $this-&gt;layout-&gt;header = 'Wprowadzanie danych do bazy' ;
+       $this-&gt;view = new View('form') ;
+       $this-&gt;layout-&gt;content = $this-&gt;view ;
+       return $this-&gt;layout ;
+    }
+
+    function saveRec() {
+       $data = $_POST['data'] ;
+       $obj  = json_decode($data) ;
+       if ( isset($obj-&gt;fname) and isset($obj-&gt;lname) and isset($obj-&gt;city)  ) {
+       //     echo &quot;fn= &quot;.$obj-&gt;fname.&quot; ln= &quot;.$obj-&gt;lname.&quot; city= &quot;.$obj-&gt;city ;      
+          $response = $this-&gt;model-&gt;saveRec($obj) ;
+       }
+       return ( $response ? &quot;Dodano rekord&quot; : &quot;Blad &quot; ) ;
+    }
+
+    function info ( $text ) {
+       $this-&gt;layout-&gt;content = $text ;
+       return $this-&gt;layout ; 
+    }
+
+
+
+    function index ()  {
+       // $this-&gt;layout-&gt;content = $text ;
+       return $this-&gt;layout ; 
+    }
+
+} 
+
+?&gt;  </pre></div>
+</li>
+
+<li>Kolejnym etapem tego zadania jest modyfikacja komponentu modelu. 
+Do kodu modelu - klasa <mark>Model</mark> dodajemy metodę saveRec(). Po uzupełnieniu zawartość klasy 
+modelu przedstawiono poniżej.
+
+  <p>Plik <b>Model.php</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex05b')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=baza/Model_1.php" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex05b"><pre class="brush: php"  >
+&lt;?php
+
+namespace baza ;
+use PDO ;
+
+class Model 
+{  
+   static $dsn = 'sqlite:sql/baza.db'  ;
+   protected static $db ;
+   private $sth ;
+
+   function __construct()
+   {
+     $data = explode(':',self::$dsn) ;
+     if ( ! file_exists ( $data[1] ) ) { throw new Exception ( &quot;Database file doesn't exist.&quot; ) ;  }
+     self::$db = new PDO ( self::$dsn ) ;
+     self::$db-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION) ; 
+   }
+
+
+   public function listAll()
+   {
+     $this-&gt;sth = self::$db-&gt;prepare('SELECT * FROM osoba') ;
+     $this-&gt;sth-&gt;execute() ;
+     $result = $this-&gt;sth-&gt;fetchAll() ;
+     return $result ;
+   }
+
+   public function saveRec($obj)
+   {
+      $this-&gt;sth = self::$db-&gt;prepare('INSERT INTO osoba VALUES ( :fname, :lname, :city) ') ;
+      $this-&gt;sth-&gt;bindValue(':fname',$obj-&gt;fname,PDO::PARAM_STR) ; 
+      $this-&gt;sth-&gt;bindValue(':lname',$obj-&gt;lname,PDO::PARAM_STR) ; 
+      $this-&gt;sth-&gt;bindValue(':city',$obj-&gt;city,PDO::PARAM_STR) ; 
+      $resp = ( $this-&gt;sth-&gt;execute() ? 'true' : 'false' ) ;
+      return $resp ; 
+   }
+
+}
+
+?&gt;  </pre></div>
+</li>
+
+<li>Do zrealizowania tego zadania należy jeszcze opracować: szablon formularza (<b>form.tpl</b>) 
+oraz wysyłanie danych z przeglądarki z wykorzystaniem skryptów w JavaScript i technologii AJAX'a. 
+Na początek szablon formularza.
+
+  <p>Plik <b>form.tpl</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex05c')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=template/form.tpl" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex05c"><pre class="brush: html"  >
+      &lt;form name=&quot;form&quot;&gt;            
+            &lt;table&gt;
+                &lt;tr&gt;&lt;td&gt;&lt;label for=&quot;fname&quot;&gt;Imie:&lt;/label&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input value=&quot;&lt;?php if(isset($formData)) echo $formData['fname']; ?&gt;&quot; type=&quot;text&quot; id=&quot;fname&quot; name=&quot;fname&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;&lt;label for=&quot;lname&quot;&gt;Nazwisko:&lt;/label&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input value=&quot;&lt;?php if(isset($formData)) echo $formData['lname']; ?&gt;&quot; type=&quot;text&quot; id=&quot;lname&quot; name=&quot;lname&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;&lt;label for=&quot;city&quot;&gt;Miejscowosc:&lt;/label&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;input value=&quot;&lt;?php if(isset($formData)) echo $formData['city']; ?&gt;&quot; type=&quot;text&quot; id=&quot;city&quot; name=&quot;city&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;
+                &lt;tr&gt;&lt;td&gt;&lt;span id=&quot;data&quot;&gt;&lt;input type=&quot;button&quot; value=&quot;Zapisz&quot; onclick=&quot;fn_save()&quot; /&gt;&lt;/span&gt;&lt;/td&gt;
+                &lt;td&gt;&lt;span id=&quot;response&quot;&gt;&lt;/span&gt;&lt;/td&gt;&lt;/tr&gt;
+            &lt;/table&gt;
+        &lt;/form&gt;   </pre></div>
+</li>
+
+
+<li>Skrypt w języku JavaScript realizujący funckjonalość zapisu do bazy danych 
+o nazwie <b>baza.js</b> umieszczamy w katalogu js. Należy również dodać odpowiedni wpis 
+w szablonie <b>main.tpl</b>: &lt;script  src="js/baza.js"&gt;&lt;/script&gt;.
+
+  <p>Plik <b>baza.js</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex05d')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=js/baza.js" target="source" >[link do dokumentu]</a> )</p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex05d"><pre class="brush: javascript"  >
+
+function fn_save()
+ {
+     var fname = document.getElementById(&quot;fname&quot;).value ;
+     var lname = document.getElementById(&quot;lname&quot;).value ;
+     var city  = document.getElementById(&quot;city&quot;).value ;
+     document.getElementById(&quot;data&quot;).style.display = &quot;none&quot; ;
+     json_data = &quot;{\&quot;fname\&quot;:\&quot;&quot; + fname + &quot;\&quot;,\&quot;lname\&quot;:\&quot;&quot; + lname + &quot;\&quot;,\&quot;city\&quot;:\&quot;&quot; + city + &quot;\&quot;}&quot; ;
+     var msg = &quot;data=&quot; + encodeURIComponent(json_data) ;                                    
+     // alert ( '['+msg+']' ) ; 
+     url = &quot;index.php?sub=Baza&amp;action=saveRec&quot; ;
+     resp = function(response) {
+        // var obj = eval(&quot;(&quot; + response + &quot;)&quot;);
+        // alert ( response ) ;
+        document.getElementById(&quot;response&quot;).innerHTML = response ; 
+      }
+      xmlhttpPost (url, msg, resp) ;                          
+}   
+function xmlhttpPost(strURL, mess, respFunc) {
+    var xmlHttpReq = false;
+    var self = this;
+    // Mozilla/Safari
+    if (window.XMLHttpRequest) {
+        self.xmlHttpReq = new XMLHttpRequest();
+    }
+    // IE
+    else if (window.ActiveXObject) {
+        self.xmlHttpReq = new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+    }
+    self.xmlHttpReq.onreadystatechange = function() {
+    if(self.xmlHttpReq.readyState == 4){
+        // alert ( self.xmlHttpReq.status ) ;
+        if ( self.xmlHttpReq.status == 200 ) {    
+           // document.getElementById(&quot;data&quot;).innerHTML = http_request.responseText;
+          respFunc( self.xmlHttpReq.responseText ) ;
+        }
+        else if ( self.xmlHttpReq.status == 401 ) {
+           window.location.reload() ;
+        } 
+      }
+    }
+    self.xmlHttpReq.open('POST', strURL);
+    self.xmlHttpReq.setRequestHeader(&quot;X-Requested-With&quot;,&quot;XMLHttpRequest&quot;);
+    self.xmlHttpReq.setRequestHeader(&quot;Content-Type&quot;,&quot;application/x-www-form-urlencoded; &quot;);
+    self.xmlHttpReq.setRequestHeader(&quot;Content-length&quot;, mess.length);
+    self.xmlHttpReq.send(mess);        
+}  </pre></div>
+</li>
+
+</ol>
+
+
+</article>
+
+
+<a id="task8"></a><article>
+<header><h3>Modyfikacja szablonu głównego</h3></header> 
+
+<p>Na koniec zmodyfikujemy wygląd naszej prostej aplikacji. Przygotujemy plik 
+arkuszy styli <b>baza.css</b>, który umieścimy w katalogu <u>css</u> oraz przygotujemy plik 
+szablonu <b>menu.tpl</b> umożliwiający nawigację po opracowanej aplikacji.</p>
+
+
+<ol>
+<li>Plik arkuszy styli - <b>baza.css</b>.
+
+  <p>Plik <b>baza.css</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex06a')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=css/main.css" target="source" >[link do dokumentu]</a></p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex06a"><pre class="brush: css"  >
+body  { width:860px; }
+header { width:858px; height: 80px; text-align:center }
+ 
+nav { height : 500px; width:200px; float:left;  }
+nav p { padding:5px; margin:0px }
+
+section { display:block; float:left; height:500px; width:656px; color:navy; }
+section header { font-weight: bold;  text-align:center; width:656px; height:20px; }
+section h1 { color:navy; font-size:12pt; text-align:center }
+section h2 { color:green; font-size:12pt; text-align:center}
+section p.italic { font-style:italic }
+
+footer { clear:both; text-align:center; color:blue }
+
+dt { font-weight: bold; }
+dd { font-style: italic; }
+div.main { padding-left: 15px; }
+p.point { font-weight: bold; }
+p.text { padding-left: 30px; }   </pre></div>
+</li>
+
+<li>Plik szablonu zawierający nawigację po aplikacji - <b>menu.tpl</b>.
+
+  <p>Plik <b>menu.tpl</b> - ( <a href="javascript:void(0)" onclick="toggleDisplayStyle('ex06b')">[listing dokumentu]</a>  
+                      <a href="read_f10.php?file=template/menu.tpl" target="source" >[link do dokumentu]</a></p> 
+                      <!--a href="ex09/Server.php" target="html-view">[widok dokumentu]</a>)</p-->
+  <div class="toggle" id="ex06b"><pre class="brush: html"  >
+&lt;a href=&quot;index.php&quot; &gt;Strona główna&lt;/a&gt;&lt;br/&gt;
+&lt;a href=&quot;index.php?sub=Info&amp;action=help&quot; &gt;Opis serwisu&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;index.php?sub=Baza&amp;action=listAll&quot; &gt;Zawartosc bazy&lt;/a&gt;&lt;br /&gt;
+&lt;a href=&quot;index.php?sub=Baza&amp;action=insertRec&quot; &gt;Wprowadzanie danych&lt;/a&gt;&lt;br /&gt;      
+  </pre></div>
+</li>
+
+<li>Dodatkowo należy zmienić wpisy w kostruktorze klasy controller wprowadzając, 
+odpowiednie wskazania do opracowanych przez nas plików: <b>baza.css</b> i <b>menu.tpl</b>. 
+Poprawną modyfikację przedstawia poniższy fragment kodu.
+
+<pre class="brush: php">
+   function __construct() {
+      $this-&gt;css  = "&lt;link rel=\"stylesheet\" href=\"css/main.css\" type=\"text/css\" media=\"screen\" &gt;" ;
+      $this-&gt;menu = file_get_contents ('template/menu.tpl') ;
+   }
+</pre>
+
+<p>W pliku szablonu <b>main.tpl</b> należy dodać wpisy umożliwiające podłączenie styli 
+i pliku z kodem JavaScript obsługującego wpisywanie danych do bazy danych.</p>
+
+<pre class="brush: html">
+  &lt;head&gt;
+     &lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;
+     &lt;title&gt;Simple MVC&lt;/title&gt;
+     &lt;?php echo $css ; ?&gt;   
+     &lt;script  src="js/baza.js"&gt;&lt;/script&gt; 
+  &lt;/head&gt;
+</pre>
+
+
+</li>
+</ol>
+
+
+</article>
+
+
+<a id="example"></a><article>
+<header><h3>Linki do uruchomionych przykładów na serwerze Pascal</h3></header> 
+
+<ul>
+<li><a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/test_hello.php">Test szablonu "hello.tpl" - skrypt test_hello.php .</a></li>
+<li><a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/test_view.php">Test klasy widoku "view.php" - skrypt test_view.php.</a></li>
+<li><a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/test_controller.php">Test klasy kontrolera "test.php" - skrypt test_controller.php.</a></li>
+<li><a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/index.php?sub=Info">Aplikacja 'Simple MVC' - część informacyjna.</a></li>
+<li><a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/index.php?sub=Baza&action=listall">Aplikacja 'Simple MVC' - wydruk rekordów z bazy.</a></li>
+<li><a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/index.php?sub=Baza&action=insertRec">Aplikacja 'Simple MVC' - dodawanie nowych rekordów.</a></li>
+<li><a href="http://pascal.fis.agh.edu.pl/~antek/TI_2019Z/lab10/mvc2n/index.php">Aplikacja 'Simple MVC' - nowy szablon.</a></li>
+</ul>
+
+</article>
+
+
+  
+
+ <a id="Links"></a><article>
+ <header><h3>Linki do dodatkowych materiałów (dostęp na dzień 7.12.2019)</h3></header>
+  
+
+<ul>
+<li><a href="http://phpflow.com/php/simple-mvc-architecture-example-in-php/" class="external text" title="http://phpflow.com/php/simple-mvc-architecture-example-in-php/" rel="nofollow">PHP : Simple MVC architecture with an example</a></li>
+<li><a href="http://www.tonymarston.net/php-mysql/model-view-controller.html" class="external text" title="http://www.tonymarston.net/php-mysql/model-view-controller.html" rel="nofollow">The Model-View-Controller (MVC) Design Pattern for PHP</a></li>
+<li><a href="http://phpmaster.com/the-mvc-pattern-and-php-1/" class="external text" title="http://phpmaster.com/the-mvc-pattern-and-php-1/" rel="nofollow">The MVC Pattern and PHP, Part 1</a></li>
+<li><a href="http://wdalmut.github.io/simple-mvc/" class="external text" title="http://wdalmut.github.io/simple-mvc/" rel="nofollow">Simple MVC [VC] framework to realize a test-driven experience</a></li>
+<li><a href="http://php-html.net/tutorials/model-view-controller-in-php/" class="external text" title="http://php-html.net/tutorials/model-view-controller-in-php/" rel="nofollow">Model View Controller(MVC) in PHP</a></li>
+</ul>
+
+  
+ 
+</article> 
+
+
+</div>
+
+
+  </body>
+  </html>

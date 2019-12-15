@@ -1,0 +1,46 @@
+body { color: navy; }
+header { font-size: x-large; font-weight: bold; text-align: center; direction: rtl;}
+span.small { font-size: medium ; }
+.code { font-weight: bold; padding: 10px; border:1px solid blue; background: #EEEEEE; }
+.toggle { display:none; }
+span.link { font-weight: bold; padding: 10px; border:1px solid blue; }
+span.emph { font-weight: bold; font-style:italic; }
+span.it  { font-style:italic }
+span.line { display: inline-block; width:40px; text-align: right; }
+span.value { font-weight: bold; }
+article > section > h1 { font-size: large ; font-weight: bold; text-align:left;
+    border-bottom: 1px solid #aaa; color: navy; }
+article > header > h3 { font-size: large ; font-weight: bold; text-align:left;
+    border-bottom: 1px solid #aaa; color: navy; }
+pre { padding: 5px;
+      margin: 0px;
+      font-family: Consolas,Courier,monospace !important;
+      font-style: normal;
+      font-weight: normal; 
+      font-size: small; }
+dl { margin-left: 50px; margin-right: 80px }
+dt { font-weight: bold; }
+dd { font-style:italic; }
+img { width: 800px }
+.presentation { box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5); border: none;  width:800px; height:400px }
+
+table.tt { border-collapse:collapse; width: 100%; border:1px solid blue; align:center; }
+table.tt tr th { border:1px solid blue; padding:3px}
+table.tt tr td { border:1px solid blue; padding:3px}
+
+pre.t1 { margin:10px; border-radius: 8px; box-shadow: 3px 3px 5px #DFDFDF; 
+         border-width: 1px; border-style: solid; }
+         
+mark {  border-radius: 4px ; padding: 1px 5px 1px 5px; border: solid 1px rgb(0,153,0) ; 
+          background-color: rgb(224, 224, 220) ; margin:  0px 3px 0px 3px; } 
+/* Return to Top */
+#myBtn { display: none; position: fixed;  bottom: 10px;  right: 20px;  z-index: 99;
+         border: none;  outline: none;    background-color: blue;     color: white;
+         cursor: pointer;  padding: 2px 12px 2px 12px;  border-radius: 5px;  }
+#myBtn:hover {  background-color: #555; } 
+dl.links { margin-left: 20px; }  
+dt.links { font-size : 12pt; font-style : italic;
+           font-weight : bold; color : navy; margin-left: 0px; padding-left: 0px; }
+dd.links { margin-left: 0px; }
+
+.extlink::before {  content:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABeUlEQVQokW2Ru2pUYRRGVw6HIOIL2KSy9AEkSFALL43zAFYiNhZKEMFCEBwFNcgopDCFIFhaRoiFRSJioaWNjWiRoA46ngxnkv+yv/1bTC5KsmF3a234vj3BPnPr9dpim3S6TWI9GYNoNFE+jHm13k9ool1Yj1r6E216kEQTjWHMtCFP1Q+Wvx/K4sYo+9E2qWqz94dZ1760aenXRp7ut4HRZiYnAzn1hrEQsp8fmb9rs6cof/Lqa3MlmboxGUggH68ZdRN1NpjfW+hM3Qeg+/EqXh7h2gMjUf0OVveDBQDufDiIl94eWHqK9B4T9Vqwaph9nLZ4wMsy0ql/4HlSvk4pB8h6WX0bJT79bMfC7WOO1EH+dgt+TExzuPeYPzdEfqZaHWySou12evd4i/wk7ocnSpnFyxzmRwB41qHOUY77/494eMKBHwXg8uIk8p2LNa7PSBe5uRJ22rCtwNkmMc0gPd8VpEvIX+Clh1ThDu7bkiG9wUt3W/gLtrwn++gaLTAAAAAASUVORK5CYII=) }
