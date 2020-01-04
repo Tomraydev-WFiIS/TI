@@ -14,7 +14,12 @@ class Register {
         $value = serialize($this->data);
         
         $dbh = dba_open("db/users.db", "c");
-        if (dba_exists($key, $dbh)){
+	if(!$dbh){
+		echo "<p>Nie udało się otworzyc bazy danych: db/users.db</p>";
+		echo $dbh;
+	    return;
+	}
+	if (dba_exists($key, $dbh)){
             echo "<p>Adres " . $this->data['email'] . " jest już zajęty.</p>";
         } else {
             dba_insert($key, $value, $dbh);

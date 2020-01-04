@@ -22,7 +22,12 @@ class Blog implements BlogInterface {
         $key = serialize($this->newKey);
         $value = $this->blogPost;
 
-        $dbh = dba_open($this->dbfile, "c");
+	$dbh = dba_open($this->dbfile, "c");
+	if (!$dbh){
+		echo "Nie udało się otworzyc bazy danych: " . $this->dbfile;
+		echo "<script>alert(\"" . "Nie udało się otworzyc bazy danych: ". $this->dbfile . "\");</script>";
+		return;
+	}
         dba_insert($key, $value, $dbh);
         dba_close($dbh);
     }

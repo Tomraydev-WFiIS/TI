@@ -63,6 +63,5 @@ class User {
         echo "</table>";
         dba_close($dbh);
     }
-}
- 
+} 
 ?>
