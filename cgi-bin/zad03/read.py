@@ -43,7 +43,7 @@ print_students()
 print(
     """
 </table>
-<a href="../../zad03/zad03.html" >Formularz</a>
+<a href="../../zad03/index.html" >Formularz</a>
 </div>
 </body>
 
