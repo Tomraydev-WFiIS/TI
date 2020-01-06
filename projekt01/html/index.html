@@ -2,7 +2,7 @@
 <html lang="pl">
 
 <head>
-	<title>Fraktal</title>
+	<title>Fraktale</title>
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
 	<meta charset="UTF-8" />
 	<meta name="author" content="Tomasz Rajchel" />
@@ -25,16 +25,37 @@
 		</div>
 		<div id="menu">
 			<button id="btn-draw">Rysuj</button>
-			<select name="selectFractal" id="selectFractal">
+			<select name="selectFractal" id="selectFractal" onchange="displayOptions(this.selectedIndex);">
 				<option value="mandelbrot" selected>Mandelbrot</option>
 				<option value="sierpinskiCarpet">Dywan Sierpińskiego</option>
 				<option value="fractalTree">Drzewo</option>
+				<option value="circle">Okręgi</option>
 			</select>
 			<input id="resX" type="number" class="input-res" value="640" max="1920" min="0">
 			<span>x</span>
 			<input id="resY" type="number" class="input-res" value="480" max="1080" min="0">
 			<button id="changeResolution">Zmień rozdzielczość</button>
+
+			<div id="optionsMandelbrot" class="options">
+				<span>Maks. iteracji: </span><input id="mandelbrotIter" class="input-1" type="number" min="1" value="80">
+			</div>
+
+			<div id="optionsSierpinskiCarpet" class="options">
+				<span>Bok: </span><input id="sierpinskiSide" class="input-1" type="number" min="1" value="100">
+			</div>
+
+			<div id="optionsFractalTree" class="options">
+				<span>Długość: </span><input id="treeLength" class="input-1" type="number" min="1" value="100"> <br>
+				<span>Kąt: </span><input id="treeAngle" class="input-1" type="number" min="0" max="360" value="30">
+			</div>
+
+			<div id="optionsCircle" class="options">
+				<span>Promień: </span><input id="circleRadius" class="input-1" type="number" min="1" value="100">
+			</div>
+
+
 		</div>
+		<p id="progress"></p>
 	</div>
 
 	<div id="history-page">
@@ -64,7 +85,7 @@
 	</div>
 
 	<div id="examples-page">
-		<h3>Przykłady z natury</h3>
+		<h2>Przykłady z natury</h2>
 			<figure>
 				<img src="../media/broccoli-min.jpg" alt="Kalafior Rzymski">
 				<figcaption>Kalafior Rzymski</figcaption>
@@ -84,8 +105,9 @@
 				<img src="../media/mars_defrosting-min.jpg" alt="Sublimacja zamrożonego dwutlenku węgla na powierzchni Marsa">
 				<figcaption>Sublimacja zamrożonego dwutlenku węgla na powierzchni Marsa</figcaption>
 			</figure>
-		<h3>Inne</h3>
-		<iframe width="420" height="315" src="https://www.youtube.com/embed/BTiZD7p_oTc"></iframe>
+			<!-- Youtube downloads too much metadata -->
+		<!-- <h3>Inne</h3>
+		<iframe width="420" height="315" src="https://www.youtube.com/embed/BTiZD7p_oTc"></iframe> -->
 	</div>
 
 	<footer>

@@ -77,3 +77,35 @@ figure {
 	margin: 0;
 	padding-bottom: 32px;
 }
+
+.options {
+	padding:4px;
+	width:480px;
+	text-align: left;
+	margin: 0 auto;
+}
+
+#optionsMandelbrot {
+	display: block;
+}
+
+#optionsSierpinskiCarpet {
+	display: none;
+}
+
+#optionsFractalTree {
+	display: none;
+}
+
+#optionsCircle {
+	display: none;
+}
+
+#progress {
+	color: darkgreen;
+}
+
+.input-1 {
+	width:4em;
+	margin: 4px;
+}

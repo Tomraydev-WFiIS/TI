@@ -1,14 +1,13 @@
 importScripts("../js/math.js")
 
 // Mandelbrot constants
-const MAX_ITER = 80;
 const RE_START = -2;
 const RE_END = 1;
 const IM_START = -1;
 const IM_END = 1;
 
 
-function infiniteCircle(x, y, r, ctx){
+function infiniteCircle(x, y, r, ctx) {
     ctx.beginPath();
     ctx.arc(x, y, r, 0, 2*Math.PI, false);
     ctx.stroke();
@@ -20,7 +19,7 @@ function infiniteCircle(x, y, r, ctx){
     }
 }
 
-function cantorLine(x, y, len, ctx){
+function cantorLine(x, y, len, ctx) {
     ctx.beginPath();
     ctx.moveTo(x,y);
     ctx.lineTo(x+len,y);
@@ -31,7 +30,7 @@ function cantorLine(x, y, len, ctx){
     }
 }
 
-function sierpinskiCarpet(x, y, a, ctx){
+function sierpinskiCarpet(x, y, a, ctx) {
     ctx.fillRect(x-a/2, y-a/2, a, a);
     if (a >= 10){
         sierpinskiCarpet(x, y - a, a/3, ctx);// top
@@ -45,7 +44,7 @@ function sierpinskiCarpet(x, y, a, ctx){
     }
 }
 
-function fractalTree(ctx, x,y,len, angle, rotation=0){
+function fractalTree(ctx, x,y,len, angle, rotation=0) {
     // angle = angle * (Math.random()*2 + 1);
     let dx = len * Math.sin(rotation);
     let dy = len * Math.cos(rotation);
@@ -60,7 +59,7 @@ function fractalTree(ctx, x,y,len, angle, rotation=0){
     }
 }
 
-function fractalTreeAnimated(ctx, x,y,len, angle, rotation=0, timeout){
+function fractalTreeAnimated(ctx, x,y,len, angle, rotation=0, timeout) {
     let dx = len * Math.sin(rotation);
     let dy = len * Math.cos(rotation);
 
@@ -76,7 +75,7 @@ function fractalTreeAnimated(ctx, x,y,len, angle, rotation=0, timeout){
     }
 }
 
-function mandelbrot(data, canvas){
+function mandelbrot(data, canvas, MAX_ITER) {
     let h = canvas.height;
     let w = canvas.width;
     for(let y = 0; y < h; y++){
@@ -88,7 +87,7 @@ function mandelbrot(data, canvas){
             );
 
             // Calculate the number of iterations
-            let n = getIterations(c);
+            let n = getIterations(c, MAX_ITER);
 
             // Calculate the color
             let hue = n/MAX_ITER;
@@ -104,7 +103,7 @@ function mandelbrot(data, canvas){
     }
 }
 
-function getIterations(c){
+function getIterations(c, MAX_ITER) {
     let z = math.complex(0,0);
     let n = 0;
     while(absComplex(z) <= 2 && n < MAX_ITER){
@@ -117,7 +116,7 @@ function getIterations(c){
     return n + 1 - Math.log(Math.log2(absComplex(z)));
 }
 
-function absComplex(z){
+function absComplex(z) {
     return Math.sqrt(z.re*z.re + z.im*z.im);
 }
 
@@ -147,7 +146,7 @@ function HSVtoRGB(h, s, v) {
     };
 }
 
-function welcomeAnimation(ctx, canvas){
+function welcomeAnimation(ctx, canvas) {
     fractalTreeAnimated(ctx, canvas.width/2, canvas.height, canvas.height*0.4, 40, 0, 50);
 }
 
@@ -165,34 +164,31 @@ onmessage = function(evt) {
             welcomeAnimation(ctx, canvas);
             break;
 
-        case 'sierpinskiCarpet':
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
-            sierpinskiCarpet(cx, cy, 300, ctx);
-            break;
-
-        case 'fractalTree':
-            ctx.clearRect(0, 0, canvas.width, canvas.height)
-            fractalTree(ctx, cx, canvas.height, 100, 30);
-            break;
-
         case 'mandelbrot':
             ctx.clearRect(0, 0, canvas.width, canvas.height)
             var imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
             console.time('mandelbrot');
-            mandelbrot(imageData.data, canvas);
+            mandelbrot(imageData.data, canvas, evt.data.MAX_ITER);
             console.timeEnd('mandelbrot');
             ctx.putImageData(imageData, 0, 0);
             break;
+
+        case 'sierpinskiCarpet':
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            // sierpinskiCarpet(cx, cy, evt.data.side, ctx); // tak nie działa - rysują się tylko 3
+            sierpinskiCarpet(cx, cy, 100, ctx); // a tak działa, o co w tym chodzi?
+            break;
+
+        case 'fractalTree':
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            fractalTree(ctx, cx, canvas.height, evt.data.len, evt.data.angle);
+            break;
+
+        case 'circle':
+            ctx.clearRect(0, 0, canvas.width, canvas.height)
+            // infiniteCircle(cx, cy, evt.data.radius, ctx); // tutaj też nie działa.
+            infiniteCircle(cx, cy, 100, ctx);
+            break;
     }
+    postMessage("done");
 };
-
-
-
-// sierpinskiCarpet(cx, cy, 300, ctx);
-// fractalTree(cx,canvas.height,100, 30, ctx);
-
-// var imageData = ctx.getImageData(0,0,canvas.width, canvas.height);
-// console.time('mandelbrot');
-// mandelbrot(imageData.data);
-// console.timeEnd('mandelbrot');
-// ctx.putImageData(imageData,0,0);
