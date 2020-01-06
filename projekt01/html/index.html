@@ -6,34 +6,88 @@
 	<link rel="stylesheet" href="../css/style.css" type="text/css" />
 	<meta charset="UTF-8" />
 	<meta name="author" content="Tomasz Rajchel" />
-	<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
-	<script type="text/javascript" src="../js/math.js"></script>
-	<script type="text/javascript" src="../js/worker.js"></script>
-	<script type="text/javascript" src="../js/fractal.js"></script>
+	<link rel="icon" href="../media/favicon.ico" type="image/x-icon" />
+	<script src="../js/math.js"></script>
+	<script src="../js/worker.js"></script>
+	<script src="../js/fractal.js"></script>
 </head>
 
 <body>
 	<nav>
-		<a href="">Rysuj</a>
-		<a href="">Historia</a>
-		<a href="">Inne</a>
+		<a href="#" id="drawing-link">Rysuj</a>
+		<a href="#" id="history-link">Historia</a>
+		<a href="#" id="examples-link">Przykłady</a>
 	</nav>
-	<div id="content">
-		<canvas id="mainCanvas" width="640" height="480"></canvas>
-		<p class="resolution">000x000</p>
-	</div>
+
+	<div id="drawing-page">
+		<div id="drawing">
+			<canvas id="mainCanvas" width="640" height="480"></canvas>
+		</div>
 		<div id="menu">
-			<button name="draw">Rysuj</button>
+			<button id="btn-draw">Rysuj</button>
 			<select name="selectFractal" id="selectFractal">
-				<option value="mandelbrot" select>Mandelbrot</option>
+				<option value="mandelbrot" selected>Mandelbrot</option>
 				<option value="sierpinskiCarpet">Dywan Sierpińskiego</option>
 				<option value="fractalTree">Drzewo</option>
 			</select>
-			<input type="number" class="input-res" value="640" max="1920" min="0">
+			<input id="resX" type="number" class="input-res" value="640" max="1920" min="0">
 			<span>x</span>
-			<input type="number" class="input-res" value="480" max="1080" min="0">
-			<button name="changeResolution">Zmień rozdzielczość</button>
+			<input id="resY" type="number" class="input-res" value="480" max="1080" min="0">
+			<button id="changeResolution">Zmień rozdzielczość</button>
 		</div>
+	</div>
+
+	<div id="history-page">
+		<article>
+			<h2>Historia</h2>
+			<section>
+				<h3>Fraktale</h3>
+				<p>
+					Po raz pierwszy pojęcie fraktala zostało użyte przez Benoit Mandelbrota w latach 70-tych XX wieku. Po łacinie fractus oznacza podzielny, ułamkowy, cząstkowy. Nazwa ta nie ma ścisłej matematycznej definicji. Oznacza ona obiekty, które mają nietrywialną strukturę w każdej skali oraz są samopodobne - czyli każda ich część przypomina całość. Mandelbrot prowadził badania przy pomocy komputera. Pierwsze obrazy zbioru opublikował w roku 1980.
+				</p>
+			</section>
+			<section>
+				<figure>
+					<img src="../media/mandelbrot-min.jpg" alt="Benoit Mandelbrot">
+					<figcaption>Benoit B. Mandelbrot</figcaption>
+				</figure>
+				<h3>Zbiór Mandelbrota</h3>
+				<p>
+					Jest to podzbiór płaszczyzny zespolonej, 
+					którego brzeg jest jednym z najbardziej znanych fraktali, 
+					„najsłynniejszym obiektem współczesnej matematyki”.
+				</p>
+				<!-- <img src="../media/mandelbrot_zoom.webp" alt="Mandelbrot set zoom in"> -->
+				<video src="../media/mandelbrot_zoom_in.mp4" controls></video>
+			</section>
+		</article>
+	</div>
+
+	<div id="examples-page">
+		<h3>Przykłady z natury</h3>
+			<figure>
+				<img src="../media/broccoli-min.jpg" alt="Kalafior Rzymski">
+				<figcaption>Kalafior Rzymski</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../media/frost-min.jpg" alt="Szron na szybie">
+				<figcaption>Szron na szybie</figcaption>
+			</figure>
+			
+			<figure>
+				<img src="../media/plexiglass-min.jpg" alt="Szkło akrylowe po działaniu wysokiego napięcia">
+				<figcaption>Szkło akrylowe po działaniu wysokiego napięcia</figcaption>
+			</figure>
+
+			<figure>
+				<img src="../media/mars_defrosting-min.jpg" alt="Sublimacja zamrożonego dwutlenku węgla na powierzchni Marsa">
+				<figcaption>Sublimacja zamrożonego dwutlenku węgla na powierzchni Marsa</figcaption>
+			</figure>
+		<h3>Inne</h3>
+		<iframe width="420" height="315" src="https://www.youtube.com/embed/BTiZD7p_oTc"></iframe>
+	</div>
+
 	<footer>
 		<p>Tomasz Rajchel - Techniki Internetowe 2019/2020</p>
 	</footer>
