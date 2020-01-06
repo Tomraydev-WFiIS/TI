@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+	<title>Fraktal</title>
+	<link rel="stylesheet" href="../css/style.css" type="text/css" />
+	<meta charset="UTF-8" />
+	<meta name="author" content="Tomasz Rajchel" />
+	<link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+	<script type="text/javascript" src="../js/math.js"></script>
+	<script type="text/javascript" src="../js/worker.js"></script>
+	<script type="text/javascript" src="../js/fractal.js"></script>
+</head>
+
+<body>
+	<nav>
+		<a href="">Rysuj</a>
+		<a href="">Historia</a>
+		<a href="">Inne</a>
+	</nav>
+	<div id="content">
+		<canvas id="mainCanvas" width="640" height="480"></canvas>
+		<p class="resolution">000x000</p>
+	</div>
+		<div id="menu">
+			<button name="draw">Rysuj</button>
+			<select name="selectFractal" id="selectFractal">
+				<option value="mandelbrot" select>Mandelbrot</option>
+				<option value="sierpinskiCarpet">Dywan Sierpińskiego</option>
+				<option value="fractalTree">Drzewo</option>
+			</select>
+			<input type="number" class="input-res" value="640" max="1920" min="0">
+			<span>x</span>
+			<input type="number" class="input-res" value="480" max="1080" min="0">
+			<button name="changeResolution">Zmień rozdzielczość</button>
+		</div>
+	<footer>
+		<p>Tomasz Rajchel - Techniki Internetowe 2019/2020</p>
+	</footer>
+</body>
+</html>
