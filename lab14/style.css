@@ -1,0 +1,43 @@
+body {
+    background-color: #bbe1fa;
+    margin: 0;
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    background-color: #3282b8;
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+}
+
+#content {
+    margin:2em;
+    margin-bottom: 5em;
+    padding:1em;
+    border-radius: 1em;
+    background-color: #fafafa;
+}
+
+section {
+    border-bottom: solid 1px #ddd;
+    margin-bottom: 2em;
+}
+
+form > input, textarea, select {
+    display: block;
+    margin-bottom: 1em;
+}
+
+
+footer {
+    clear: both;
+    width: 100%;
+    position: relative;
+    line-height: 3em;
+    margin-top: -3em;
+    background-color: #1b262c;
+    color: #fff;
+    text-align:	center;
+}

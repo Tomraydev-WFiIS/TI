@@ -3,7 +3,7 @@ const bodyParser= require('body-parser')
 const mongodb = require('mongodb')
 var db
 const dbname = '7rajchel';
-const url = 'mongodb://7rajchel:pass7rajchel@172.20.44.25/7rajchel';
+const url = 'mongodb://7rajchel:pass7rajchel@127.0.0.1/7rajchel'; //172.20.44.25
  
 const app = express();
 app.use(bodyParser.json());

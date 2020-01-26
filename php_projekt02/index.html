@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+	<title>Projekt 2 - Tomasz Rajchel</title>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Tomasz Rajchel" />
+	<link rel="stylesheet" href="style.css" type="text/css" />
+	<link rel="icon" href="../media/favicon.ico" type="image/x-icon" />
+	<script src="rest.js" type="text/javascript"></script>
+</head>
+
+<body>
+	<div style="text-align:center" >
+		<table border="1" bgcolor="gray">
+		  <tr><th><big>Baza danych MongoDB. Operacje CRUD.</big></th></tr>
+		</table>
+		<br />
+		<form action="#">
+		   <table><tr>
+		   <td><input type="button" value="Pobranie danych z bazy" onclick="_list()"/></td>
+		   <td><input type="button" value="Dodanie rekordu do bazy" onclick="_ins_form()"/></td>
+		   <td><input type="button" value="Usuniecie rekordu z bazy" onclick="_del_list()"/></td>
+		   <td><input type="button" value="Poprawa rekordu w bazie" onclick="_upd_list()"/></td>
+		   </tr></table>
+		</form>
+	  </div>
+	  <div id="data"></div>
+	  <div id="result"></div>
+
+	<footer>
+		<p>&copy; 2020 Tomasz Rajchel</p>
+	</footer>
+</body>
+</html>

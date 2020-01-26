@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pl">
+
+<head>
+	<title>Zadanie 2 - Tomasz Rajchel</title>
+	<meta charset="UTF-8" />
+    <meta name="author" content="Tomasz Rajchel" />
+	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<link rel="icon" href="favicon.ico" type="image/x-icon" />
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script src="ajax.js"></script>
+</head>
+
+<body>
+<header>
+	Zadanie 2
+</header>
+
+<div id="content">
+	<section id="create_form" >
+		<h3>CREATE</h3>
+		<form id="note_form">
+			<label for="note_category">Kategoria:</label>
+			<select id="note_category" name="note_category" required>
+				<option value="pierwsza">pierwsza</option>
+				<option value="druga">druga</option>
+				<option value="trzecia">trzecia</option>
+			</select>
+	
+			<label for="note_content">Treść:</label>
+			<textarea  id="note_content" name="note_content" cols="30" rows="10" required></textarea>
+	
+			<label for="note_date">Data:</label>
+			<input type="date" id="note_date" name="note_date" required>
+	
+			<input type="submit" id="submit_note">
+		</form>
+	</section>
+
+	<section id="read" >
+		<h3>READ</h3>
+		<a href="/notatki">Czytaj wszystkie</a>
+	</section>
+
+	<section id="update" >
+		<h3>UPDATE</h3>
+	</section>
+
+	<section id="delete" >
+		<h3>DELETE</h3>
+	</section>
+	
+</div>
+
+<footer>
+	<span>&copy; 2020 Tomasz Rajchel</span>
+</footer>
+
+</body>
+</html>

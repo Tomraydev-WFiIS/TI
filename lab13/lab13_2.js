@@ -3,24 +3,24 @@ var http = require('http');
 var qs = require('querystring');
  
 // build a simple form
-var pageHTML = '<html>' +
-  '<head>' +
-    '<title>Add something</title>' +
-    '<meta charset="utf-8">' +
-  '</head>' + 
-  '<body>' +
-    '<form method="post" action="">' +
-      '<div>' +
-        '<label for="fname">First name:</label>' +
-        '<input type="text" name="fname">' +  
-      '</div>' +
-      '<div>' +
-        '<input type="submit" value="send it">' +
-      '</div>' +
-    '</form>' +
-  '</body>' +
-'</html>';
- 
+var pageHTML = `<html>
+  <head>
+    <title>Add something</title>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <form method="post" action="">
+      <div>
+        <label for="fname">First name:</label>
+        <input type="text" name="fname">
+      </div>
+      <div>
+        <input type="submit" value="send it">
+      </div>
+    </form>
+  </body>
+</html>`;
+
 // create server and process data
 var server = http.createServer(function (req, res) {
   var requestData = '';
@@ -44,5 +44,5 @@ var server = http.createServer(function (req, res) {
   }
 });
 
-server.listen(<port>, '127.0.0.1');
-console.log('Server running at http://127.0.0.1:<port>/');
+server.listen(4007, '127.0.0.1');
+console.log('Server running at http://127.0.0.1:4007/');
