@@ -11,7 +11,7 @@ const host = '172.20.44.25'; // 172.20.44.25
 const url = 'mongodb://7rajchel:pass7rajchel@' + host + '/' + dbname;
 const app = express();
 const port = 4007;
-const collection = 'notatki';
+const collection = 'biblioteka';
 
 
 // config
@@ -57,7 +57,7 @@ app.post('/' + collection, function( req,res ) {
    })
 })
 
-// READ
+// READ ALL
 app.get('/' + collection, function(req, res) {
   var cursor = db.collection(collection).find().toArray(function(err, results) {
      if (err) return console.log(err);
@@ -66,17 +66,29 @@ app.get('/' + collection, function(req, res) {
   })
 })
 
+// READ BY CATEGORY
 app.get('/' + collection + '/:kategoria', function(req,res) {
-   console.log(req.params.id);
+   console.log(req.params.kategoria);
+   var query = { "book_category": req.params.kategoria };
+   var cursor = db.collection(collection).find(query).toArray(function(err, results) {
+      if (err) return console.log(err);
+      res.end(JSON.stringify(results));
+      console.log(results);
+   })
+})
+
+// READ ONE
+app.get('/' + collection + '/:kategoria' + '/:id', function(req,res) {
+   console.log(req.params.id)
    db.collection(collection).findOne({_id: new mongodb.ObjectId(req.params.id)},function(err,result) {
-       if (err) return console.log(err);
-       res.end(JSON.stringify(result));
-       console.log(result);
-   })	   
+       if (err) return console.log(err)
+       res.end(JSON.stringify(result))
+       console.log(result)
+   })      
 })
 
 // DELETE
-app.delete('/' + collection + '/:kategoria',function(req, res) {
+app.delete('/' + collection + '/:id',function(req, res) {
    console.log(req.params.id);
    db.collection(collection).deleteOne({_id: new mongodb.ObjectId(req.params.id)},function(err,result) {
       if (err) return console.log(err);
@@ -86,7 +98,7 @@ app.delete('/' + collection + '/:kategoria',function(req, res) {
 })
 
 // UPDATE
-app.put('/' + collection + '/:kategoria',function(req,res) {
+app.put('/' + collection + '/:id',function(req, res) {
    console.log(req.params.id);
    console.log(req.body);
    data = req.body;

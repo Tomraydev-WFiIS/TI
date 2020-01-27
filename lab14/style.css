@@ -22,7 +22,7 @@ header {
 
 section {
     border-bottom: solid 1px #ddd;
-    margin-bottom: 2em;
+    padding-bottom:1em;
 }
 
 form > input, textarea, select {
@@ -30,6 +30,14 @@ form > input, textarea, select {
     margin-bottom: 1em;
 }
 
+.btn {
+    background-color: #3282b8;
+    color: #fff;
+    text-decoration: none;
+    padding: 4px 8px;
+    border-radius:1px;
+    line-height:1.5em;
+}
 
 footer {
     clear: both;

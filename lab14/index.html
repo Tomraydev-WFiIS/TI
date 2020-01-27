@@ -13,41 +13,75 @@
 
 <body>
 <header>
-	Zadanie 2
+	Biblioteka - Zadanie 2
 </header>
 
 <div id="content">
-	<section id="create_form" >
+	<section id="create" >
 		<h3>CREATE</h3>
-		<form id="note_form">
-			<label for="note_category">Kategoria:</label>
-			<select id="note_category" name="note_category" required>
-				<option value="pierwsza">pierwsza</option>
-				<option value="druga">druga</option>
-				<option value="trzecia">trzecia</option>
+		<form id="create_form">
+			<label for="book_category">Kategoria:</label>
+			<select size="1" id="book_category" name="book_category" required>
+				<option value="kryminal">Kryminał</option>
+				<option value="biografia">Biografia</option>
+				<option value="pop_naukowy">Popularno naukowy</option>
 			</select>
 	
-			<label for="note_content">Treść:</label>
-			<textarea  id="note_content" name="note_content" cols="30" rows="10" required></textarea>
+			<label for="book_title">Tytuł:</label>
+			<input type="text" name="book_title" id="book_title" required>
+
+			<label for="book_authors">Autorzy:</label>
+			<input type="text" name="book_authors" id="book_authors" required>
+
+			<label for="book_publisher">Wydawnictwo:</label>
+			<input type="text" name="book_publisher" id="book_publisher" required>
 	
-			<label for="note_date">Data:</label>
-			<input type="date" id="note_date" name="note_date" required>
-	
-			<input type="submit" id="submit_note">
+			<input type="submit" id="submit_book" value="Dodaj">
 		</form>
 	</section>
 
 	<section id="read" >
 		<h3>READ</h3>
-		<a href="./notatki">Czytaj wszystkie</a>
+		<a href="./biblioteka" class="btn">Czytaj wszystkie</a><hr>
+		<a href="./biblioteka/kryminal" class="btn">Kryminaly</a>
+		<a href="./biblioteka/biografia" class="btn">Biografie</a>
+		<a href="./biblioteka/pop_naukowy" class="btn">Popularno Naukowe</a>
 	</section>
 
 	<section id="update" >
 		<h3>UPDATE</h3>
+		<form id="update_form">
+			<label for="book_id">ID Książki:</label>
+			<input type="text" name="book_id" id="book_id" required>
+
+			<label for="book_category">Nowa Kategoria:</label>
+			<select size="1" id="book_category" name="book_category" required>
+				<option value="kryminal">Kryminał</option>
+				<option value="biografia">Biografia</option>
+				<option value="pop_naukowy">Popularno naukowy</option>
+			</select>
+	
+			<label for="book_title">Nowy Tytuł:</label>
+			<input type="text" name="book_title" id="book_title" required>
+
+			<label for="book_authors">Nowi Autorzy:</label>
+			<input type="text" name="book_authors" id="book_authors" required>
+
+			<label for="book_publisher">Nowe Wydawnictwo:</label>
+			<input type="text" name="book_publisher" id="book_publisher" required>
+	
+			<input type="submit" id="update_book" value="Modyfikuj">
+		</form>
 	</section>
 
 	<section id="delete" >
 		<h3>DELETE</h3>
+		<form id="delete_form">
+			<label for="book_id">ID Książki:</label>
+			<input type="text" name="book_id" id="book_id" required>
+	
+			<input type="submit" id="delete_book" value="Usun">
+		</form>
 	</section>
 	
 </div>
