@@ -1,0 +1,55 @@
+include head.pug
+
+<div id="content">
+	<section>
+		<h3>Ankieta</h3>
+		<form action="#" id="survey_form">
+			<label for="firstName">Imię</label>
+			<input type="text" name="firstName" id="firstName" value="Jan" required>
+
+			<label for="lastName">Nazwisko</label>
+			<input type="text" name="lastName" id="lastName" value="Kowalski" required>
+
+			<p>1. W jaki sposób dowiedziałeś się o tej ofercie pracy?</p>
+			<input type="radio" name="source" value="internet" checked required>Przez internet<br>
+			<input type="radio" name="source" value="social_media" >Media społecznościowe<br>
+			<input type="radio" name="source" value="friends" >Od znajomych<br>
+			<input type="radio" name="source" value="other" >Inne<br>
+
+			<p>2. Ile lat doświadczenia masz w tej lub podobnej dziedzinie?</p>
+			<input type="number" name="experience" id="experience" min="0" max="100" value="5" required>
+
+			<p>3. W jakim stopniu znasz następujące języki obce?</p>
+			<label for="english">Angielski</label>
+			<select name="english" id="english" size="1" required>
+				<option value="zero">nie znam</option>
+				<option value="basic">podstawowy</option>
+				<option value="advanced">zaawansowany</option>
+				<option value="expert" selected>wyższy</option>
+			</select><br>
+
+			<label for="german">Niemiecki</label>
+			<select name="german" id="german" size="1" required>
+				<option value="zero">nie znam</option>
+				<option value="basic">podstawowy</option>
+				<option value="advanced" selected>zaawansowany</option>
+				<option value="expert">wyższy</option>
+			</select><br>
+
+			<label for="spanish">Hiszpański</label>
+			<select name="spanish" id="spanish" size="1" required>
+				<option value="zero" selected>nie znam</option>
+				<option value="basic">podstawowy</option>
+				<option value="advanced">zaawansowany</option>
+				<option value="expert">wyższy</option>
+			</select><br>
+
+			<p>4. Wymień technologie które znasz.</p>
+			<textarea name="tech" id="tech" cols="30" rows="10" required>HTML, CSS, JavaScript</textarea><br>
+			<input type="submit" value="Wyślij">
+		</form>
+	</section>
+</div>
+
+
+include footer.pug
