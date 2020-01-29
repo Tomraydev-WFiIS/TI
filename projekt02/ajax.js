@@ -32,39 +32,32 @@ $("#survey_form").on("submit", function( event ) {
     })
 });
 
-// // DELETE
-// $("#delete_form").on("submit", function( event ) {
-//     event.preventDefault();
+$("#save_locally").click(function (event){
+    let form_data = $("#survey_form").serialize();
+    var survey = QueryStringToJSON(form_data)
+    addObjectToStore('surveys', survey);
+})
 
-//     var book_id = document.querySelector("#delete_form > #book_id").value;
-//     $.ajax({
-//         type: "DELETE",
-//         url: "/biblioteka/" + book_id,
-//         data: {},
-//         success: function(data) {
-//             alert('Usunieto ksiazke o ID: ' + book_id);
-//         },
-//         error: function(){
-//             alert('Ksiazka o podanym ID nie istnieje');
-//         }
-//     })
-// });
+function QueryStringToJSON(queryString) {            
+    var pairs = queryString.split('&');
+    
+    var result = {};
+    pairs.forEach(function(pair) {
+        pair = pair.split('=');
+        result[pair[0]] = decodeURIComponent(pair[1] || '');
+    });
 
-// // UPDATE
-// $("#update_form").on("submit", function( event ) {
-//     event.preventDefault();
-//     var book_id = document.querySelector("#update_form > #book_id").value;
-//     $.ajax({
-//         type: "PUT",
-//         url: "/biblioteka/" + book_id,
-//         data: $(this).serialize(),
-//         success: function(data) {
-//             alert('Zmodyfikowano ksiazke.');
-//         },
-//         error: function(){
-//             alert('Nie udalo sie zmodyfikowac ksiazki.');
-//         }
-//     })
-// });
+    return JSON.parse(JSON.stringify(result));
+}
+
+$("#results_offline").click(function (event) {
+    event.preventDefault();
+    readData('surveys');
+    $.ajax({
+        type: "GET",
+        url: "/survey_results_offline",
+        data: {global_results}
+    })
+});
 
 });
