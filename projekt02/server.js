@@ -9,9 +9,9 @@ const pug = require('pug');
 // constants
 var sdb;
 const dbname = '7rajchel';
-const host = '127.0.0.1'; // 172.20.44.25 - pascal
-// const url = 'mongodb://7rajchel:pass7rajchel@' + host + '/' + dbname;
-const url = 'mongodb://tomray@' + host + '/' + dbname;
+const host = '172.20.44.25'; // 172.20.44.25 - pascal
+const url = 'mongodb://7rajchel:pass7rajchel@' + host + '/' + dbname;
+// const url = 'mongodb://tomray@' + host + '/' + dbname;
 const app = express();
 const port = 4107;
 
