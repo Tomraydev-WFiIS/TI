@@ -62,8 +62,16 @@ app.get('/', function(req,res) {
 })
 
 app.get('/analytics', auth, function(req,res) {
+   var data;
    result = pug.renderFile('templates/analytics.pug');
    res.status(200).send(result);
+})
+
+app.get('/analytics_data', auth, function(req,res) {
+   var cursor = sdb.collection('survey').find().toArray(function(err, db_results) {
+      if (err) return console.log(err);
+      res.status(200).send(db_results);
+   })
 })
 
 app.get('/login', function(req,res) {
@@ -137,14 +145,15 @@ app.get('/survey_results', function(req, res) {
          res.status(200).send(result);
       })
    } else {
-      res.status(401).send("Zaloguj się aby zobaczyć wyniki offline.");
+      res.status(401).send("Zaloguj się aby to zobaczyć.");
    }
 })
 
 app.get('/survey_results_offline', function(req, res) {
-   console.log(req);
    if(!req.session.admin){
-      // result = pug.renderFile('templates/survey_results.pug', req.params);
-      // res.status(200).send(result);
+      result = pug.renderFile('templates/survey_results_offline.pug');
+      res.status(200).send(result);
+   }else {
+      res.status(401).send("Wyloguj się aby zobaczyć wyniki offline.");
    }
 })

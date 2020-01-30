@@ -6,8 +6,9 @@ include head.pug
         - var data = locals.db_results;
         table(class="table table-striped")
             thead(class="thead-light")
-                each value, key in data[0]
-                    th #{key}
+                tr
+                    each value, key in data[0]
+                        th #{key}
             tbody
                 each survey in data
                     tr
